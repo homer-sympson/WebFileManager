@@ -44,12 +44,15 @@ RUN test -f src/FileManager.Api/wwwroot/ru/index.html \
 # ---------------------------------------------------------------- stage 3: runtime
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 
-# acl  -> setfacl/getfacl for per-user directory access (requirement 4)
+# acl -> setfacl/getfacl for per-user directory access (requirement 4)
 # passwd -> useradd/usermod/userdel/chpasswd (requirements 4 and 5)
 # libpam-modules -> pam_unix.so for host password authentication
+# sudo -> provides /etc/sudoers and /etc/sudoers.d, where the app stores admin privileges
+# libgssapi-krb5-2 -> silences Npgsql's "Cannot load library libgssapi_krb5.so.2" probe message
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends acl passwd libpam-modules \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y --no-install-recommends acl passwd libpam-modules sudo libgssapi-krb5-2 \
+    && rm -rf /var/lib/apt/lists/* \
+    && install -d -m 0755 /etc/sudoers.d
 
 # Dedicated PAM service: password authentication against /etc/shadow, no nullok.
 # The carriage return check turns a CRLF checkout of this file into a build error instead of a
@@ -82,6 +85,7 @@ if [ -n "$admin_password" ] && ! id -u "$admin_user" >/dev/null 2>&1; then
     useradd -m -U -s /bin/bash -c "FileManager administrator" "$admin_user"
     printf '%s:%s\n' "$admin_user" "$admin_password" | chpasswd
     usermod -aG sudo "$admin_user"
+    install -d -m 0755 /etc/sudoers.d
     printf '# Managed by FileManager. Do not edit manually.\n%s ALL=(ALL:ALL) ALL\n' "$admin_user" > "/etc/sudoers.d/$admin_user"
     chmod 0440 "/etc/sudoers.d/$admin_user"
 fi

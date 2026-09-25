@@ -107,8 +107,16 @@ public sealed class LinuxImpersonationExecutor : IImpersonationExecutor, IDispos
 
     public void VerifyCredentialSwitch()
     {
+        if (!Libc.SupportsPerThreadCredentials)
+        {
+            throw new InvalidOperationException(
+                $"Per-thread credential switching is not implemented for {System.Runtime.InteropServices.RuntimeInformation.OSArchitecture}. " +
+                "Falling back to the glibc wrappers would change the credentials of the whole process, so the service " +
+                "refuses to start with impersonation enabled. Set FileManager:Impersonation:Enabled=false only for development.");
+        }
+
         var identity = new LinuxIdentity(_options.SelfTestUid, _options.SelfTestGid, "self-test", [], false);
-        var result = RunAsync(identity, () => (Uid: Libc.geteuid(), Gid: Libc.getegid())).AsTask().GetAwaiter().GetResult();
+        var result = RunAsync(identity, () => (Uid: Libc.GetEUid(), Gid: Libc.GetEGid())).AsTask().GetAwaiter().GetResult();
 
         if (result.Uid != _options.SelfTestUid || result.Gid != _options.SelfTestGid)
         {
@@ -116,7 +124,7 @@ public sealed class LinuxImpersonationExecutor : IImpersonationExecutor, IDispos
                 $"Impersonation self test failed: expected euid {_options.SelfTestUid}/egid {_options.SelfTestGid}, got euid={result.Uid} egid={result.Gid}.");
         }
 
-        if (Libc.geteuid() != RootId)
+        if (Libc.GetEUid() != RootId)
         {
             throw new InvalidOperationException("Impersonation self test failed: process did not return to uid 0.");
         }
@@ -124,18 +132,19 @@ public sealed class LinuxImpersonationExecutor : IImpersonationExecutor, IDispos
         if (!ProbeThreadIsolation())
         {
             throw new InvalidOperationException(
-                "The current platform applies credential changes process-wide instead of per thread. Serving several " +
-                "users from one process would then be unsafe, so the service refuses to start. Credential switching " +
-                "requires Linux with glibc >= 2.24 (standard on Debian 12). For local development without root, set " +
-                "FileManager:Impersonation:Enabled=false, which also disables real permission enforcement.");
+                "Credential switching turned out to be visible to other threads of this process. Serving several users " +
+                "from one process would then be unsafe, so the service refuses to start. This happens when the kernel " +
+                "syscalls are interposed by a sandbox. For development only, set FileManager:Impersonation:Enabled=false, " +
+                "which also disables real permission enforcement.");
         }
 
         _logger.LogInformation("Credential switching verified: filesystem operations run as the logged in user.");
     }
 
     /// <summary>
-    /// Verifies that switching credentials on a worker thread is invisible to every other thread.
-    /// A background observer must never observe a foreign effective uid.
+    /// Verifies that switching credentials on a worker thread is invisible to every other thread: a
+    /// background observer must never see a foreign effective uid. The check reads the kernel value
+    /// (raw syscall), not glibc's cached one.
     /// </summary>
     internal bool ProbeThreadIsolation()
     {
@@ -146,7 +155,7 @@ public sealed class LinuxImpersonationExecutor : IImpersonationExecutor, IDispos
         {
             while (!Volatile.Read(ref stop))
             {
-                if (Libc.geteuid() != RootId)
+                if (Libc.GetEUid() != RootId)
                 {
                     Interlocked.Increment(ref foreignObservations);
                 }
@@ -256,26 +265,28 @@ public sealed class LinuxImpersonationExecutor : IImpersonationExecutor, IDispos
     }
 
     /// <summary>
-    /// Switches only the effective credentials (setresuid/setresgid with -1 for real and saved), which is
-    /// what the kernel uses for filesystem permission checks (fsuid/fsgid plus supplementary groups).
-    /// The real/saved uid stays 0 so the worker can return to root afterwards; this is a permission
-    /// enforcement mechanism for our own trusted code, not a sandbox against arbitrary code execution.
+    /// Switches only the effective credentials (real and saved uid/gid stay untouched), which is what the
+    /// kernel uses for filesystem permission checks (fsuid/fsgid plus supplementary groups). The real and
+    /// saved uid remain 0 so the worker can return to root afterwards.
+    ///
+    /// The calls go to the raw syscalls on purpose: glibc's setxid wrappers apply the change to every
+    /// thread of the process (POSIX semantics), which would let a request run with another user's rights.
     /// </summary>
     private static void Enter(LinuxIdentity identity)
     {
         var groups = identity.SupplementaryGroups.Length == 0 ? [identity.Gid] : identity.SupplementaryGroups;
-        Check(Libc.setgroups((nuint)groups.Length, groups), "setgroups");
-        Check(Libc.setresgid(uint.MaxValue, identity.Gid, uint.MaxValue), "setresgid");
-        Check(Libc.setresuid(uint.MaxValue, identity.Uid, uint.MaxValue), "setresuid");
+        Check(Libc.SetGroups(groups), "setgroups");
+        Check(Libc.SetResGid(uint.MaxValue, identity.Gid, uint.MaxValue), "setresgid");
+        Check(Libc.SetResUid(uint.MaxValue, identity.Uid, uint.MaxValue), "setresuid");
         _insideScope = true;
     }
 
     private static void Restore()
     {
         _insideScope = false;
-        Check(Libc.setresuid(uint.MaxValue, RootId, uint.MaxValue), "setresuid(root)");
-        Check(Libc.setresgid(uint.MaxValue, RootId, uint.MaxValue), "setresgid(root)");
-        Check(Libc.setgroups(1, [RootId]), "setgroups(root)");
+        Check(Libc.SetResUid(uint.MaxValue, RootId, uint.MaxValue), "setresuid(root)");
+        Check(Libc.SetResGid(uint.MaxValue, RootId, uint.MaxValue), "setresgid(root)");
+        Check(Libc.SetGroups([RootId]), "setgroups(root)");
     }
 
     private static void Check(int rc, string call)

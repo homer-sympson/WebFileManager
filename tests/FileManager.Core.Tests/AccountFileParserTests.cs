@@ -139,6 +139,32 @@ public class AccountFileParserTests
     }
 
     [Fact]
+    public void ToleratesGroupNamesThatShareAGid()
+    {
+        var users = AccountFileParser.BuildUsers(
+            AccountFileParser.ParsePasswd("""
+                root:x:0:0:root:/root:/bin/bash
+                alice:x:65534:65534:Alice:/home/alice:/bin/bash
+                """),
+            AccountFileParser.ParseGroup("""
+                root:x:0:
+                alice:x:65534:
+                nogroup:x:65534:
+                """),
+            AccountFileParser.ParseShadow("""
+                root:*:19000:0:99999:7:::
+                alice:$6$abcdefgh$hash:19000:0:99999:7:::
+                """),
+            ["sudo"],
+            minimumUid: 1000,
+            includeSystemUsers: false);
+
+        var alice = users.Single(u => u.Name == "alice");
+        Assert.Contains("alice", alice.GroupNames);
+        Assert.Contains(65534u, alice.GroupIds);
+    }
+
+    [Fact]
     public void IgnoresCommentAndPlusLines()
     {
         var entries = AccountFileParser.ParsePasswd("""

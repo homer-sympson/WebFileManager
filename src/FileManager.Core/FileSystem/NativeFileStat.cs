@@ -20,7 +20,7 @@ public static class NativeFileStat
         var buffer = Marshal.AllocHGlobal(size);
         try
         {
-            if (Libc.stat(path, buffer) != 0)
+            if (Libc.Stat(path, buffer) != 0)
             {
                 return false;
             }

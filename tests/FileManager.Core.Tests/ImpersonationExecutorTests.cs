@@ -151,7 +151,7 @@ public class ImpersonationExecutorTests
             }),
             NullLogger<LinuxImpersonationExecutor>.Instance);
 
-    private static uint GetEffectiveUid() => Libc.geteuid();
+    private static uint GetEffectiveUid() => Libc.GetEUid();
 
-    private static uint GetEffectiveGid() => Libc.getegid();
+    private static uint GetEffectiveGid() => Libc.GetEGid();
 }

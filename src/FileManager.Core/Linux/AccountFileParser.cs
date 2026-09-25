@@ -94,7 +94,14 @@ public static class AccountFileParser
         bool includeSystemUsers)
     {
         var admin = new HashSet<string>(adminGroups, StringComparer.Ordinal);
-        var groupsByGid = groups.ToDictionary(g => g.Gid, g => g.Name);
+
+        // Real hosts do contain several group names sharing one gid (for example nobody and nogroup
+        // both use 65534): keep the first one instead of failing to parse /etc/group.
+        var groupsByGid = new Dictionary<uint, string>();
+        foreach (var group in groups)
+        {
+            groupsByGid.TryAdd(group.Gid, group.Name);
+        }
 
         // user name -> group memberships (primary gid plus explicit membership)
         var memberships = new Dictionary<string, List<string>>(StringComparer.Ordinal);
