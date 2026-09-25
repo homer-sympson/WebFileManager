@@ -52,12 +52,15 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Dedicated PAM service: password authentication against /etc/shadow, no nullok.
+# The carriage return check turns a CRLF checkout of this file into a build error instead of a
+# PAM failure at runtime.
 RUN printf '%s\n' \
         'auth      required   pam_unix.so' \
         'account   required   pam_unix.so' \
         'password  required   pam_unix.so' \
         'session   required   pam_unix.so' \
-        > /etc/pam.d/filemanager
+        > /etc/pam.d/filemanager \
+    && ! grep -q "$(printf '\r')" /etc/pam.d/filemanager
 
 # The admin group our application recognises (FileManager:AdminGroups).
 RUN getent group sudo >/dev/null || groupadd --system sudo
@@ -67,7 +70,7 @@ COPY --from=build /app/publish /app
 
 # Entry point: create the emergency administrator when the password is provided and the
 # account does not exist yet, then start the API (which serves the SPA from wwwroot).
-RUN cat > /usr/local/bin/filemanager-entrypoint.sh <<'ENTRYPOINT'
+RUN cat > /usr/local/bin/filemanager-entrypoint.sh <<'FM_SCRIPT'
 #!/bin/sh
 set -eu
 
@@ -84,9 +87,19 @@ if [ -n "$admin_password" ] && ! id -u "$admin_user" >/dev/null 2>&1; then
 fi
 
 exec dotnet /app/FileManager.Api.dll
-ENTRYPOINT
+FM_SCRIPT
 
-RUN chmod 0755 /usr/local/bin/filemanager-entrypoint.sh
+# A Dockerfile checked out with Windows line endings (git core.autocrlf on Windows) puts a carriage
+# return into every heredoc line, including the shebang: the kernel then tries to run "/bin/sh\r" and
+# the container dies with
+#   exec /usr/local/bin/filemanager-entrypoint.sh: no such file or directory
+# Strip CRs and fail the build loudly when the script is not what it must be.
+RUN tr -d '\r' < /usr/local/bin/filemanager-entrypoint.sh > /tmp/fm-entrypoint.sh \
+    && install -m 0755 /tmp/fm-entrypoint.sh /usr/local/bin/filemanager-entrypoint.sh \
+    && rm -f /tmp/fm-entrypoint.sh \
+    && head -n 1 /usr/local/bin/filemanager-entrypoint.sh | grep -qx '#!/bin/sh' \
+    && ! grep -q "$(printf '\r')" /usr/local/bin/filemanager-entrypoint.sh \
+    && grep -q 'exec dotnet /app/FileManager.Api.dll' /usr/local/bin/filemanager-entrypoint.sh
 
 ENV ASPNETCORE_URLS=http://0.0.0.0:8080 \
     ASPNETCORE_ENVIRONMENT=Production \
@@ -94,4 +107,5 @@ ENV ASPNETCORE_URLS=http://0.0.0.0:8080 \
 
 EXPOSE 8080
 
-ENTRYPOINT ["/usr/local/bin/filemanager-entrypoint.sh"]
+# /bin/sh is passed explicitly, so even a stray carriage return in the shebang cannot stop the start.
+ENTRYPOINT ["/bin/sh", "/usr/local/bin/filemanager-entrypoint.sh"]

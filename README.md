@@ -158,6 +158,36 @@ docker compose up --build
 Чтобы открыть реальные каталоги хоста, добавьте их в `volumes` сервиса `app` и в
 `FileManager__BrowseRoots__*`.
 
+### Если контейнер падает с `exec .../filemanager-entrypoint.sh: no such file or directory`
+
+Это не отсутствующий файл, а **CRLF в переводе строк**. Windows-checkout (git `core.autocrlf=true`)
+или копирование `Dockerfile` через редактор с CRLF превращает shebang в `#!/bin/sh\r`, ядро ищет
+интерпретатор `/bin/sh\r` и возвращает `ENOENT` — docker печатает именно такое сообщение.
+
+Что уже сделано в образе: скрипт entrypoint нормализуется на этапе сборки (`tr -d '\r'`), сборка
+**падает с понятной ошибкой**, если проверки shebang/содержимого/отсутствия `\r` не проходят, а
+`ENTRYPOINT ["/bin/sh", "..."]` не зависит от shebang. Дополнительно `.gitattributes` фиксирует LF в
+рабочем дереве.
+
+Что сделать у себя, если ошибка всё же появилась:
+
+```bash
+# 1. Проверить причину (в репозитории)
+git config --get core.autocrlf        # true -> checkout с CRLF
+file Dockerfile                       # "... with CRLF line terminators" подтверждает диагноз
+
+# 2. Пересоздать файлы с LF (после обновления .gitattributes)
+git config core.autocrlf false
+git rm --cached -r . >/dev/null && git reset --hard
+
+# 3. Пересобрать без кэша и запустить
+docker compose build --no-cache app && docker compose up
+
+# 4. Убедиться, что внутри образа скрипт без CR
+docker compose run --rm --entrypoint /bin/sh app -c \
+  "head -1 /usr/local/bin/filemanager-entrypoint.sh | od -c | head -1"   # ожидается: # ! / b i n / s h  \n
+```
+
 ---
 
 ## 6. Развёртывание на самом хосте (без Docker)

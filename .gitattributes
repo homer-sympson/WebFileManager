@@ -1,0 +1,18 @@
+# Keep LF line endings in the working tree for every text file.
+#
+# This project is built and started by Linux tooling (Docker, /bin/sh, nginx-less Kestrel).
+# With Windows line endings a shell script gets the shebang "#!/bin/sh\r" and the kernel looks for
+# an interpreter called "/bin/sh\r", which fails with:
+#   exec /usr/local/bin/filemanager-entrypoint.sh: no such file or directory
+# On Windows git defaults (core.autocrlf=true) would do exactly that on checkout.
+* text=auto eol=lf
+
+# Binary assets must never be converted.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
