@@ -1,0 +1,31 @@
+# build / tooling caches kept inside the workspace when the local env pins them
+.nuget/
+.npm-cache/
+.dotnet-home/
+.npm/
+
+# dotnet
+bin/
+obj/
+*.user
+*.suo
+TestResults/
+artifacts/
+
+# node / angular
+node_modules/
+dist/
+.angular/
+*.tsbuildinfo
+
+# secrets
+.env
+.env.local
+
+# SPA build output is generated into the API project
+src/FileManager.Api/wwwroot/
+
+# app data
+*.db
+*.db-shm
+*.db-wal

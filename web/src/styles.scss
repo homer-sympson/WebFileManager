@@ -1,0 +1,110 @@
+@use '@angular/material' as mat;
+
+html {
+  color-scheme: light dark;
+
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      density: 0,
+    )
+  );
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font: var(--mat-sys-body-medium);
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--mat-sys-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--mat-sys-primary);
+  outline-offset: 2px;
+}
+
+/* Shared layout helpers used by the feature pages. */
+.page {
+  display: block;
+  padding: 1rem clamp(0.75rem, 2vw, 1.5rem) 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.page-header h1,
+.page-header h2 {
+  font: var(--mat-sys-headline-small);
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.state-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.error-text {
+  color: var(--mat-sys-error);
+}
+
+/* Material only styles its own `.mat-icon`, so inline SVG icons need the same spacing. */
+button[matButton] app-icon,
+a[matButton] app-icon,
+button[mat-button] app-icon,
+a[mat-button] app-icon {
+  margin-inline-end: 0.4rem;
+}
+
+button[matButton] app-icon:only-child,
+button[matIconButton] app-icon,
+button[mat-icon-button] app-icon {
+  margin-inline-end: 0;
+}
+
+mat-menu-item app-icon {
+  vertical-align: middle;
+  margin-inline-end: 0.75rem;
+}

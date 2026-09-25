@@ -1,0 +1,2655 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ru" target-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+
+      <trans-unit id="route.login">
+        <source>Вход</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      <target state="translated">Sign in</target>
+      </trans-unit>
+
+      <trans-unit id="route.browse">
+        <source>Файлы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      <target state="translated">Files</target>
+      </trans-unit>
+
+      <trans-unit id="route.history">
+        <source>История</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      <target state="translated">History</target>
+      </trans-unit>
+
+      <trans-unit id="route.profile">
+        <source>Профиль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      <target state="translated">Profile</target>
+      </trans-unit>
+
+      <trans-unit id="route.users">
+        <source>Пользователи</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      <target state="translated">Users</target>
+      </trans-unit>
+
+      <trans-unit id="route.userNew">
+        <source>Новый пользователь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      <target state="translated">New user</target>
+      </trans-unit>
+
+      <trans-unit id="route.userEdit">
+        <source>Пользователь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      <target state="translated">User</target>
+      </trans-unit>
+
+      <trans-unit id="tabConflict.title">
+        <source>Открыто в другой вкладке</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.ts</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      <target state="translated">Open in another tab</target>
+      </trans-unit>
+
+      <trans-unit id="tabConflict.body">
+        <source> Работа с файловым менеджером уже идёт в другой вкладке этого браузера. Одна сессия — одна вкладка: закройте эту вкладку и продолжайте в той, где вы вошли. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.ts</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+      <target state="translated">The file manager is already in use in another tab of this browser. One session means one tab: close this tab and continue in the one where you signed in.</target>
+      </trans-unit>
+
+      <trans-unit id="users.adminOnly">
+        <source>Раздел доступен только администраторам.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/guards/auth.guard.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      <target state="translated">This section is available to administrators only.</target>
+      </trans-unit>
+
+      <trans-unit id="error.network">
+        <source>Нет связи с сервером. Проверьте подключение.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      <target state="translated">Cannot reach the server. Check your connection.</target>
+      </trans-unit>
+
+      <trans-unit id="error.badRequest">
+        <source>Некорректный запрос.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      <target state="translated">Invalid request.</target>
+      </trans-unit>
+
+      <trans-unit id="error.unauthorized">
+        <source>Требуется вход в систему.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      <target state="translated">Authentication required.</target>
+      </trans-unit>
+
+      <trans-unit id="error.forbidden">
+        <source>Недостаточно прав для выполнения операции.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      <target state="translated">You do not have permission to perform this operation.</target>
+      </trans-unit>
+
+      <trans-unit id="error.notFound">
+        <source>Объект не найден.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      <target state="translated">The object was not found.</target>
+      </trans-unit>
+
+      <trans-unit id="error.conflict">
+        <source>Конфликт с текущим состоянием.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      <target state="translated">Conflict with the current state.</target>
+      </trans-unit>
+
+      <trans-unit id="error.tooLarge">
+        <source>Файл слишком большой.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      <target state="translated">The file is too large.</target>
+      </trans-unit>
+
+      <trans-unit id="error.tooManyRequests">
+        <source>Слишком много запросов. Повторите попытку позже.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      <target state="translated">Too many requests. Try again later.</target>
+      </trans-unit>
+
+      <trans-unit id="error.server">
+        <source>Внутренняя ошибка сервера.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/http/problem.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      <target state="translated">Internal server error.</target>
+      </trans-unit>
+
+      <trans-unit id="entryType.file">
+        <source>Файл</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      <target state="translated">File</target>
+      </trans-unit>
+
+      <trans-unit id="entryType.directory">
+        <source>Каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      <target state="translated">Folder</target>
+      </trans-unit>
+
+      <trans-unit id="entryType.symlink">
+        <source>Символическая ссылка</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      <target state="translated">Symbolic link</target>
+      </trans-unit>
+
+      <trans-unit id="entryType.other">
+        <source>Особый файл</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      <target state="translated">Special file</target>
+      </trans-unit>
+
+      <trans-unit id="access.readWriteExecute">
+        <source>чтение, запись, выполнение</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      <target state="translated">read, write, execute</target>
+      </trans-unit>
+
+      <trans-unit id="access.readWrite">
+        <source>чтение, запись</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      <target state="translated">read, write</target>
+      </trans-unit>
+
+      <trans-unit id="access.readExecute">
+        <source>чтение, выполнение</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      <target state="translated">read, execute</target>
+      </trans-unit>
+
+      <trans-unit id="access.readOnly">
+        <source>только чтение</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      <target state="translated">read only</target>
+      </trans-unit>
+
+      <trans-unit id="access.writeExecute">
+        <source>запись, выполнение</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      <target state="translated">write, execute</target>
+      </trans-unit>
+
+      <trans-unit id="access.writeOnly">
+        <source>только запись</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      <target state="translated">write only</target>
+      </trans-unit>
+
+      <trans-unit id="access.executeOnly">
+        <source>только выполнение</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      <target state="translated">execute only</target>
+      </trans-unit>
+
+      <trans-unit id="access.none">
+        <source>нет доступа</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      <target state="translated">no access</target>
+      </trans-unit>
+
+      <trans-unit id="access.unknown">
+        <source>неизвестно</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      <target state="translated">unknown</target>
+      </trans-unit>
+
+      <trans-unit id="pathAccess.read">
+        <source>Чтение</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      <target state="translated">Read</target>
+      </trans-unit>
+
+      <trans-unit id="pathAccess.write">
+        <source>Запись</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      <target state="translated">Write</target>
+      </trans-unit>
+
+      <trans-unit id="pathAccess.readWrite">
+        <source>Чтение и запись</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      <target state="translated">Read and write</target>
+      </trans-unit>
+
+      <trans-unit id="conflict.fail">
+        <source>Прервать операцию</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      <target state="translated">Abort the operation</target>
+      </trans-unit>
+
+      <trans-unit id="conflict.overwrite">
+        <source>Перезаписать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      <target state="translated">Overwrite</target>
+      </trans-unit>
+
+      <trans-unit id="conflict.skip">
+        <source>Пропустить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      <target state="translated">Skip</target>
+      </trans-unit>
+
+      <trans-unit id="conflict.rename">
+        <source>Переименовать копию</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/labels.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      <target state="translated">Rename the copy</target>
+      </trans-unit>
+
+      <trans-unit id="common.dismiss">
+        <source>Закрыть</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/notification.service.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      <target state="translated">Dismiss</target>
+      </trans-unit>
+
+      <trans-unit id="upload.failed">
+        <source>Не удалось загрузить файл.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/upload.store.ts</context>
+          <context context-type="linenumber">176</context>
+        </context-group>
+      <target state="translated">The file could not be uploaded.</target>
+      </trans-unit>
+
+      <trans-unit id="session.superseded">
+        <source>Выполнен вход с другого устройства или браузера. Одновременная работа из разных браузеров запрещена — эта сессия закрыта.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      <target state="translated">Someone signed in from another device or browser. Simultaneous sessions are not allowed, so this session was closed.</target>
+      </trans-unit>
+
+      <trans-unit id="session.passwordChanged">
+        <source>Пароль был изменён. Войдите снова.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      <target state="translated">The password was changed. Please sign in again.</target>
+      </trans-unit>
+
+      <trans-unit id="session.expired">
+        <source>Сессия истекла. Войдите снова.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      <target state="translated">The session has expired. Please sign in again.</target>
+      </trans-unit>
+
+      <trans-unit id="session.accountUnusable">
+        <source>Учётная запись больше не может входить в систему.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      <target state="translated">This account can no longer sign in.</target>
+      </trans-unit>
+
+      <trans-unit id="session.signedOut">
+        <source>Сессия завершена. Войдите снова.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      <target state="translated">The session has ended. Please sign in again.</target>
+      </trans-unit>
+
+      <trans-unit id="session.generic">
+        <source>Сессия завершена. Войдите снова.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      <target state="translated">The session has ended. Please sign in again.</target>
+      </trans-unit>
+
+      <trans-unit id="login.alreadySignedInAt">
+        <source>Учётная запись уже используется в другом браузере (последняя активность в <x id="moment" equiv-text="moment"/>). Выполните выход там, чтобы войти здесь.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      <target state="translated">This account is already in use in another browser (last activity <x id="moment" equiv-text="moment"/>). Sign out there to sign in here.</target>
+      </trans-unit>
+
+      <trans-unit id="login.alreadySignedIn">
+        <source>Учётная запись уже используется в другом браузере. Выполните выход там, чтобы войти здесь.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/session-messages.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      <target state="translated">This account is already in use in another browser. Sign out there to sign in here.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.recentAria">
+        <source>Недавние папки</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      <target state="translated">Recent folders</target>
+      </trans-unit>
+
+      <trans-unit id="browse.pathLabel">
+        <source>Путь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+      <target state="translated">Path</target>
+      </trans-unit>
+
+      <trans-unit id="browse.go">
+        <source>Перейти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">33,36</context>
+        </context-group>
+      <target state="translated">Go</target>
+      </trans-unit>
+
+      <trans-unit id="browse.newFolder">
+        <source>Новый каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">65,68</context>
+        </context-group>
+      <target state="translated">New folder</target>
+      </trans-unit>
+
+      <trans-unit id="browse.uploadFiles">
+        <source>Загрузить файлы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">70,73</context>
+        </context-group>
+      <target state="translated">Upload files</target>
+      </trans-unit>
+
+      <trans-unit id="browse.uploadFolder">
+        <source>Загрузить папку</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">75,78</context>
+        </context-group>
+      <target state="translated">Upload folder</target>
+      </trans-unit>
+
+      <trans-unit id="browse.download">
+        <source>Скачать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">96,99</context>
+        </context-group>
+      <target state="translated">Download</target>
+      </trans-unit>
+
+      <trans-unit id="browse.copy">
+        <source>Копировать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">101,104</context>
+        </context-group>
+      <target state="translated">Copy</target>
+      </trans-unit>
+
+      <trans-unit id="browse.cut">
+        <source>Вырезать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">106,109</context>
+        </context-group>
+      <target state="translated">Cut</target>
+      </trans-unit>
+
+      <trans-unit id="browse.paste">
+        <source>Вставить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">111,112</context>
+        </context-group>
+      <target state="translated">Paste</target>
+      </trans-unit>
+
+      <trans-unit id="browse.rename">
+        <source>Переименовать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">119,122</context>
+        </context-group>
+      <target state="translated">Rename</target>
+      </trans-unit>
+
+      <trans-unit id="browse.delete">
+        <source>Удалить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">124,127</context>
+        </context-group>
+      <target state="translated">Delete</target>
+      </trans-unit>
+
+      <trans-unit id="browse.properties">
+        <source>Свойства</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">129,131</context>
+        </context-group>
+      <target state="translated">Properties</target>
+      </trans-unit>
+
+      <trans-unit id="browse.clipboardCopy">
+        <source>В буфере обмена: копирование, объектов — <x id="INTERPOLATION" equiv-text="{{ clipboard.count() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">136,137</context>
+        </context-group>
+      <target state="translated">Clipboard: copy, items — <x id="INTERPOLATION" equiv-text="{{ clipboard.count() }}"/></target>
+      </trans-unit>
+
+      <trans-unit id="browse.clipboardCut">
+        <source>В буфере обмена: перемещение, объектов — <x id="INTERPOLATION" equiv-text="{{ clipboard.count() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">138,139</context>
+        </context-group>
+      <target state="translated">Clipboard: move, items — <x id="INTERPOLATION" equiv-text="{{ clipboard.count() }}"/></target>
+      </trans-unit>
+
+      <trans-unit id="browse.clipboardClear">
+        <source>Очистить буфер</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">140,144</context>
+        </context-group>
+      <target state="translated">Clear the clipboard</target>
+      </trans-unit>
+
+      <trans-unit id="common.retry">
+        <source>Повторить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">152,154</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+      <target state="translated">Retry</target>
+      </trans-unit>
+
+      <trans-unit id="browse.dropHere">
+        <source>Отпустите файлы, чтобы загрузить их в этот каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">173,175</context>
+        </context-group>
+      <target state="translated">Drop the files to upload them into this folder</target>
+      </trans-unit>
+
+      <trans-unit id="browse.colName">
+        <source>Имя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">199</context>
+        </context-group>
+      <target state="translated">Name</target>
+      </trans-unit>
+
+      <trans-unit id="browse.colSize">
+        <source>Размер</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">211,212</context>
+        </context-group>
+      <target state="translated">Size</target>
+      </trans-unit>
+
+      <trans-unit id="browse.colModified">
+        <source>Изменён</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">216,217</context>
+        </context-group>
+      <target state="translated">Modified</target>
+      </trans-unit>
+
+      <trans-unit id="browse.colMode">
+        <source>Права</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">221,222</context>
+        </context-group>
+      <target state="translated">Mode</target>
+      </trans-unit>
+
+      <trans-unit id="browse.colOwner">
+        <source>Владелец</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">226,227</context>
+        </context-group>
+      <target state="translated">Owner</target>
+      </trans-unit>
+
+      <trans-unit id="browse.colAccess">
+        <source>Доступ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">233,234</context>
+        </context-group>
+      <target state="translated">Access</target>
+      </trans-unit>
+
+      <trans-unit id="browse.empty">
+        <source>Каталог пуст.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">246,247</context>
+        </context-group>
+      <target state="translated">The folder is empty.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.emptyHint">
+        <source> Перетащите файлы сюда или используйте кнопки загрузки. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.html</context>
+          <context context-type="linenumber">248,250</context>
+        </context-group>
+      <target state="translated">Drag files here or use the upload buttons.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.crumbsAria">
+        <source>Навигация по пути</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      <target state="translated">Path navigation</target>
+      </trans-unit>
+
+      <trans-unit id="browse.toolbarAria">
+        <source>Действия с файлами</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+      <target state="translated">File actions</target>
+      </trans-unit>
+
+      <trans-unit id="browse.up">
+        <source>Перейти в родительский каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      <target state="translated">Go to the parent folder</target>
+      </trans-unit>
+
+      <trans-unit id="browse.refresh">
+        <source>Обновить список</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      <target state="translated">Refresh the listing</target>
+      </trans-unit>
+
+      <trans-unit id="browse.loading">
+        <source>Загрузка списка</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      <target state="translated">Loading the listing</target>
+      </trans-unit>
+
+      <trans-unit id="browse.selectAll">
+        <source>Выбрать все объекты</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      <target state="translated">Select all items</target>
+      </trans-unit>
+
+      <trans-unit id="browse.truncated">
+        <source>Показаны не все объекты: в каталоге <x id="total" equiv-text="listing.total"/> элементов, список ограничен.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+      <target state="translated">Not all items are listed: the folder contains <x id="total" equiv-text="listing.total"/> entries and the list is limited.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.loadFailed">
+        <source>Не удалось открыть каталог.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">256</context>
+        </context-group>
+      <target state="translated">The folder could not be opened.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.newFolderTitle">
+        <source>Новый каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">326</context>
+        </context-group>
+      <target state="translated">New folder</target>
+      </trans-unit>
+
+      <trans-unit id="browse.newFolderLabel">
+        <source>Имя каталога</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">327</context>
+        </context-group>
+      <target state="translated">Folder name</target>
+      </trans-unit>
+
+      <trans-unit id="common.create">
+        <source>Создать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">329</context>
+        </context-group>
+      <target state="translated">Create</target>
+      </trans-unit>
+
+      <trans-unit id="browse.created">
+        <source>Каталог создан.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">342</context>
+        </context-group>
+      <target state="translated">Folder created.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.createFailed">
+        <source>Не удалось создать каталог.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">343</context>
+        </context-group>
+      <target state="translated">The folder could not be created.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.renameTitle">
+        <source>Переименование</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">355</context>
+        </context-group>
+      <target state="translated">Rename</target>
+      </trans-unit>
+
+      <trans-unit id="browse.renameLabel">
+        <source>Новое имя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">356</context>
+        </context-group>
+      <target state="translated">New name</target>
+      </trans-unit>
+
+      <trans-unit id="common.rename">
+        <source>Переименовать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">358</context>
+        </context-group>
+      <target state="translated">Rename</target>
+      </trans-unit>
+
+      <trans-unit id="browse.renamed">
+        <source>Объект переименован.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">371</context>
+        </context-group>
+      <target state="translated">The item was renamed.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.renameFailed">
+        <source>Не удалось переименовать объект.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">372</context>
+        </context-group>
+      <target state="translated">The item could not be renamed.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.deleteFailed">
+        <source>ошибка удаления</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">406</context>
+        </context-group>
+      <target state="translated">delete failed</target>
+      </trans-unit>
+
+      <trans-unit id="browse.deleted">
+        <source>Удалено объектов: <x id="count" equiv-text="removed"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">415</context>
+        </context-group>
+      <target state="translated">Items deleted: <x id="count" equiv-text="removed"/>.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.copiedToClipboard">
+        <source>Скопировано в буфер: <x id="count" equiv-text="selected.length"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">446</context>
+        </context-group>
+      <target state="translated">Copied to the clipboard: <x id="count" equiv-text="selected.length"/>.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.cutToClipboard">
+        <source>Вырезано в буфер: <x id="count" equiv-text="selected.length"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">447</context>
+        </context-group>
+      <target state="translated">Cut to the clipboard: <x id="count" equiv-text="selected.length"/>.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.pasteIntoSelf">
+        <source>Нельзя вставить объект внутрь самого себя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">466</context>
+        </context-group>
+      <target state="translated">An item cannot be pasted into itself.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.pasteNoop">
+        <source>Объекты уже находятся в этом каталоге.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">472</context>
+        </context-group>
+      <target state="translated">The items are already in this folder.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.transferSkipped">
+        <source>Пропущено объектов: <x id="count" equiv-text="result.skipped.length"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">517</context>
+        </context-group>
+      <target state="translated">Items skipped: <x id="count" equiv-text="result.skipped.length"/>.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.copyDone">
+        <source>Скопировано объектов: <x id="count" equiv-text="result.affected.length"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">522</context>
+        </context-group>
+      <target state="translated">Items copied: <x id="count" equiv-text="result.affected.length"/>.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.moveDone">
+        <source>Перемещено объектов: <x id="count" equiv-text="result.affected.length"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">523</context>
+        </context-group>
+      <target state="translated">Items moved: <x id="count" equiv-text="result.affected.length"/>.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.copyFailed">
+        <source>Не удалось скопировать объекты.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">538</context>
+        </context-group>
+      <target state="translated">The items could not be copied.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.moveFailed">
+        <source>Не удалось переместить объекты.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">539</context>
+        </context-group>
+      <target state="translated">The items could not be moved.</target>
+      </trans-unit>
+
+      <trans-unit id="upload.aborted">
+        <source>Загрузка отменена.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">659</context>
+        </context-group>
+      <target state="translated">Upload cancelled.</target>
+      </trans-unit>
+
+      <trans-unit id="upload.finished">
+        <source>Загрузка завершена.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/browse-page.ts</context>
+          <context context-type="linenumber">698</context>
+        </context-group>
+      <target state="translated">Upload finished.</target>
+      </trans-unit>
+
+      <trans-unit id="browse.recent">
+        <source>Недавние папки</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/recent-panel.ts</context>
+          <context context-type="linenumber">16,19</context>
+        </context-group>
+      <target state="translated">Recent folders</target>
+      </trans-unit>
+
+      <trans-unit id="browse.recentEmpty">
+        <source>История пока пуста.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/recent-panel.ts</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+      <target state="translated">The history is empty.</target>
+      </trans-unit>
+
+      <trans-unit id="upload.title">
+        <source>Загрузка файлов</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/upload-panel.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      <target state="translated">Uploading files</target>
+      </trans-unit>
+
+      <trans-unit id="upload.cancel">
+        <source>Отменить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/upload-panel.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      <target state="translated">Cancel</target>
+      </trans-unit>
+
+      <trans-unit id="upload.clear">
+        <source> Очистить </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/upload-panel.ts</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      <target state="translated">Clear</target>
+      </trans-unit>
+
+      <trans-unit id="upload.pending">
+        <source>в очереди</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/upload-panel.ts</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      <target state="translated">queued</target>
+      </trans-unit>
+
+      <trans-unit id="upload.done">
+        <source>готово</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/upload-panel.ts</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      <target state="translated">done</target>
+      </trans-unit>
+
+      <trans-unit id="upload.canceled">
+        <source>отменено</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/browse/upload-panel.ts</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
+      <target state="translated">cancelled</target>
+      </trans-unit>
+
+      <trans-unit id="history.title">
+        <source>История посещений</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      <target state="translated">Browsing history</target>
+      </trans-unit>
+
+      <trans-unit id="history.clear">
+        <source>Очистить историю</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+      <target state="translated">Clear history</target>
+      </trans-unit>
+
+      <trans-unit id="history.empty">
+        <source>История пуста.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">49,51</context>
+        </context-group>
+      <target state="translated">The history is empty.</target>
+      </trans-unit>
+
+      <trans-unit id="history.colPath">
+        <source>Каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      <target state="translated">Folder</target>
+      </trans-unit>
+
+      <trans-unit id="history.colVisited">
+        <source>Посещён</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      <target state="translated">Visited</target>
+      </trans-unit>
+
+      <trans-unit id="history.colCount">
+        <source>Визитов</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">68,69</context>
+        </context-group>
+      <target state="translated">Visits</target>
+      </trans-unit>
+
+      <trans-unit id="history.colActions">
+        <source>Действия</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">73,74</context>
+        </context-group>
+      <target state="translated">Actions</target>
+      </trans-unit>
+
+      <trans-unit id="history.open">
+        <source>Открыть</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      <target state="translated">Open</target>
+      </trans-unit>
+
+      <trans-unit id="history.paginatorAria">
+        <source>Постраничная навигация по истории</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">90,94</context>
+        </context-group>
+      <target state="translated">History pagination</target>
+      </trans-unit>
+
+      <trans-unit id="history.loadFailed">
+        <source>Не удалось загрузить историю.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      <target state="translated">The history could not be loaded.</target>
+      </trans-unit>
+
+      <trans-unit id="history.clearTitle">
+        <source>Очистка истории</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">186</context>
+        </context-group>
+      <target state="translated">Clear history</target>
+      </trans-unit>
+
+      <trans-unit id="history.clearMessage">
+        <source>Удалить всю историю посещений? Действие необратимо.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">187</context>
+        </context-group>
+      <target state="translated">Delete the whole browsing history? This action cannot be undone.</target>
+      </trans-unit>
+
+      <trans-unit id="history.clearConfirm">
+        <source>Очистить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">188</context>
+        </context-group>
+      <target state="translated">Clear</target>
+      </trans-unit>
+
+      <trans-unit id="history.cleared">
+        <source>История очищена.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">204</context>
+        </context-group>
+      <target state="translated">History cleared.</target>
+      </trans-unit>
+
+      <trans-unit id="history.clearFailed">
+        <source>Не удалось очистить историю.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/history/history-page.ts</context>
+          <context context-type="linenumber">207</context>
+        </context-group>
+      <target state="translated">The history could not be cleared.</target>
+      </trans-unit>
+
+      <trans-unit id="login.title">
+        <source>Вход в файловый менеджер</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      <target state="translated">Sign in to the file manager</target>
+      </trans-unit>
+
+      <trans-unit id="login.userName">
+        <source>Имя пользователя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      <target state="translated">User name</target>
+      </trans-unit>
+
+      <trans-unit id="login.userNameRequired">
+        <source>Укажите имя пользователя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">69,71</context>
+        </context-group>
+      <target state="translated">Enter a user name.</target>
+      </trans-unit>
+
+      <trans-unit id="login.password">
+        <source>Пароль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+      <target state="translated">Password</target>
+      </trans-unit>
+
+      <trans-unit id="login.passwordRequired">
+        <source>Укажите пароль.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">82,84</context>
+        </context-group>
+      <target state="translated">Enter a password.</target>
+      </trans-unit>
+
+      <trans-unit id="login.hidePassword">
+        <source>Скрыть пароль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">88,91</context>
+        </context-group>
+      <target state="translated">Hide the password</target>
+      </trans-unit>
+
+      <trans-unit id="login.submit">
+        <source>Войти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">93,94</context>
+        </context-group>
+      <target state="translated">Sign in</target>
+      </trans-unit>
+
+      <trans-unit id="login.welcome">
+        <source>Здравствуйте, <x id="name" equiv-text="profile.fullName || profile.userName"/>!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">215</context>
+        </context-group>
+      <target state="translated">Welcome, <x id="name" equiv-text="profile.fullName || profile.userName"/>!</target>
+      </trans-unit>
+
+      <trans-unit id="login.failed">
+        <source>Не удалось войти. Проверьте имя пользователя и пароль.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/login/login-page.ts</context>
+          <context context-type="linenumber">221</context>
+        </context-group>
+      <target state="translated">Sign in failed. Check the user name and password.</target>
+      </trans-unit>
+
+      <trans-unit id="profile.title">
+        <source>Профиль и возможности системы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">19,22</context>
+        </context-group>
+      <target state="translated">Profile and system capabilities</target>
+      </trans-unit>
+
+      <trans-unit id="profile.account">
+        <source>Учётная запись</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      <target state="translated">Account</target>
+      </trans-unit>
+
+      <trans-unit id="profile.userName">
+        <source>Имя пользователя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      <target state="translated">User name</target>
+      </trans-unit>
+
+      <trans-unit id="profile.fullName">
+        <source>Полное имя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      <target state="translated">Full name</target>
+      </trans-unit>
+
+      <trans-unit id="profile.uidGid">
+        <source>UID / GID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      <target state="translated">UID / GID</target>
+      </trans-unit>
+
+      <trans-unit id="profile.home">
+        <source>Домашний каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      <target state="translated">Home folder</target>
+      </trans-unit>
+
+      <trans-unit id="profile.groups">
+        <source>Группы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      <target state="translated">Groups</target>
+      </trans-unit>
+
+      <trans-unit id="profile.admin">
+        <source>Администратор</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">40,42</context>
+        </context-group>
+      <target state="translated">Administrator</target>
+      </trans-unit>
+
+      <trans-unit id="common.yes">
+        <source>Да</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+      <target state="translated">Yes</target>
+      </trans-unit>
+
+      <trans-unit id="common.no">
+        <source>Нет</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">45,47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">53,55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+      <target state="translated">No</target>
+      </trans-unit>
+
+      <trans-unit id="profile.sudo">
+        <source>Правило sudo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      <target state="translated">sudo rule</target>
+      </trans-unit>
+
+      <trans-unit id="profile.system">
+        <source>Возможности сервера</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">61,63</context>
+        </context-group>
+      <target state="translated">Server capabilities</target>
+      </trans-unit>
+
+      <trans-unit id="profile.aclUnavailable">
+        <source> POSIX ACL недоступны: управление правами на каталоги через ACL отключено, списки доступа недоступны. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">68,70</context>
+        </context-group>
+      <target state="translated">POSIX ACLs are unavailable: managing folder permissions through ACLs is disabled and access lists cannot be shown.</target>
+      </trans-unit>
+
+      <trans-unit id="profile.databaseUnavailable">
+        <source> База данных недоступна: история посещений и сессии могут работать некорректно. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">78,80</context>
+        </context-group>
+      <target state="translated">The database is unavailable: browsing history and sessions may not work correctly.</target>
+      </trans-unit>
+
+      <trans-unit id="profile.os">
+        <source>Операционная система</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">84,85</context>
+        </context-group>
+      <target state="translated">Operating system</target>
+      </trans-unit>
+
+      <trans-unit id="profile.privileged">
+        <source>Запуск с правами root</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">86,87</context>
+        </context-group>
+      <target state="translated">Running as root</target>
+      </trans-unit>
+
+      <trans-unit id="profile.impersonation">
+        <source>Подмена пользователя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">88,89</context>
+        </context-group>
+      <target state="translated">User impersonation</target>
+      </trans-unit>
+
+      <trans-unit id="profile.pam">
+        <source>PAM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      <target state="translated">PAM</target>
+      </trans-unit>
+
+      <trans-unit id="profile.shadow">
+        <source>/etc/shadow</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+      <target state="translated">/etc/shadow</target>
+      </trans-unit>
+
+      <trans-unit id="profile.acl">
+        <source>POSIX ACL</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">94,95</context>
+        </context-group>
+      <target state="translated">POSIX ACL</target>
+      </trans-unit>
+
+      <trans-unit id="profile.database">
+        <source>База данных</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">96,97</context>
+        </context-group>
+      <target state="translated">Database</target>
+      </trans-unit>
+
+      <trans-unit id="profile.roots">
+        <source>Разрешённые корни</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">98,99</context>
+        </context-group>
+      <target state="translated">Allowed roots</target>
+      </trans-unit>
+
+      <trans-unit id="profile.noRoots">
+        <source>не заданы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/profile-page.ts</context>
+          <context context-type="linenumber">104,106</context>
+        </context-group>
+      <target state="translated">not configured</target>
+      </trans-unit>
+
+      <trans-unit id="users.deleteRevokeLegend">
+        <source>Отозвать ACL на путях</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-delete-dialog.ts</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      <target state="translated">Revoke ACLs on paths</target>
+      </trans-unit>
+
+      <trans-unit id="common.cancel">
+        <source>Отмена</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-delete-dialog.ts</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">335,337</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">218</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">299</context>
+        </context-group>
+      <target state="translated">Cancel</target>
+      </trans-unit>
+
+      <trans-unit id="users.deleteConfirm">
+        <source>Удалить пользователя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-delete-dialog.ts</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
+      <target state="translated">Delete the user</target>
+      </trans-unit>
+
+      <trans-unit id="users.deleteTitle">
+        <source>Удаление учётной записи</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-delete-dialog.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      <target state="translated">Delete account</target>
+      </trans-unit>
+
+      <trans-unit id="users.deleteRemoveHome">
+        <source>Удалить домашний каталог <x id="path" equiv-text="this.data.homeDirectory"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-delete-dialog.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      <target state="translated">Delete the home directory <x id="path" equiv-text="this.data.homeDirectory"/></target>
+      </trans-unit>
+
+      <trans-unit id="users.deleteMessage">
+        <source>Учётная запись «<x id="name" equiv-text="this.data.userName"/>» будет удалена без возможности восстановления.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-delete-dialog.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      <target state="translated">The account “<x id="name" equiv-text="this.data.userName"/>” will be deleted permanently.</target>
+      </trans-unit>
+
+      <trans-unit id="common.back">
+        <source>Назад</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">61,63</context>
+        </context-group>
+      <target state="translated">Back</target>
+      </trans-unit>
+
+      <trans-unit id="users.newTitle">
+        <source>Новый пользователь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">64,66</context>
+        </context-group>
+      <target state="translated">New user</target>
+      </trans-unit>
+
+      <trans-unit id="users.editTitle">
+        <source>Пользователь <x id="INTERPOLATION" equiv-text="{{ name() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      <target state="translated">User <x id="INTERPOLATION" equiv-text="{{ name() }}"/></target>
+      </trans-unit>
+
+      <trans-unit id="common.delete">
+        <source>Удалить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">71,73</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">158,160</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">222</context>
+        </context-group>
+      <target state="translated">Delete</target>
+      </trans-unit>
+
+      <trans-unit id="users.sectionAccount">
+        <source>Учётная запись</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">88,90</context>
+        </context-group>
+      <target state="translated">Account</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldUserName">
+        <source>Имя пользователя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+      <target state="translated">User name</target>
+      </trans-unit>
+
+      <trans-unit id="users.userNameRequired">
+        <source>Укажите имя пользователя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">95,97</context>
+        </context-group>
+      <target state="translated">Enter a user name.</target>
+      </trans-unit>
+
+      <trans-unit id="users.userNamePattern">
+        <source> Допустимы строчные латинские буквы, цифры, «_», «-» и «.», первый символ — буква или «_». </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      <target state="translated">Lower-case Latin letters, digits, “_”, “-” and “.” are allowed; the first character must be a letter or “_”.</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldFullName">
+        <source>Полное имя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">105,106</context>
+        </context-group>
+      <target state="translated">Full name</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldShell">
+        <source>Оболочка</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">110,111</context>
+        </context-group>
+      <target state="translated">Shell</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldCreateHome">
+        <source> Создать домашний каталог </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">122,123</context>
+        </context-group>
+      <target state="translated">Create the home directory</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldHome">
+        <source>Домашний каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">127,128</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">132,133</context>
+        </context-group>
+      <target state="translated">Home folder</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldUid">
+        <source>UID / GID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">136,137</context>
+        </context-group>
+      <target state="translated">UID / GID</target>
+      </trans-unit>
+
+      <trans-unit id="users.sectionPassword">
+        <source>Пароль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">144,146</context>
+        </context-group>
+      <target state="translated">Password</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldPassword">
+        <source>Пароль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">147,148</context>
+        </context-group>
+      <target state="translated">Password</target>
+      </trans-unit>
+
+      <trans-unit id="users.passwordHint">
+        <source>Минимум <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> символов.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">150,151</context>
+        </context-group>
+      <target state="translated">At least <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> characters.</target>
+      </trans-unit>
+
+      <trans-unit id="users.passwordKeepHint">
+        <source>Оставьте пустым, чтобы не менять пароль.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">152,154</context>
+        </context-group>
+      <target state="translated">Leave empty to keep the current password.</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldPasswordConfirm">
+        <source>Повторите пароль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">157,158</context>
+        </context-group>
+      <target state="translated">Repeat the password</target>
+      </trans-unit>
+
+      <trans-unit id="users.sectionGroups">
+        <source>Группы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">168,170</context>
+        </context-group>
+      <target state="translated">Groups</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldGroups">
+        <source>Группы пользователя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">172,173</context>
+        </context-group>
+      <target state="translated">User groups</target>
+      </trans-unit>
+
+      <trans-unit id="users.groupsPlaceholder">
+        <source>Выберите группы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">178,180</context>
+        </context-group>
+      <target state="translated">Select groups</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldNewGroup">
+        <source>Добавить группу</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">187,188</context>
+        </context-group>
+      <target state="translated">Add a group</target>
+      </trans-unit>
+
+      <trans-unit id="users.addGroup">
+        <source> Добавить группу </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">192,193</context>
+        </context-group>
+      <target state="translated">Add group</target>
+      </trans-unit>
+
+      <trans-unit id="users.sectionSudo">
+        <source>Права sudo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">198,200</context>
+        </context-group>
+      <target state="translated">sudo permissions</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldGrantSudo">
+        <source> Разрешить sudo </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">201,202</context>
+        </context-group>
+      <target state="translated">Allow sudo</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldSudoNopasswd">
+        <source> sudo без запроса пароля (NOPASSWD) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">205,207</context>
+        </context-group>
+      <target state="translated">sudo without a password (NOPASSWD)</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldRevokeSudo">
+        <source> Удалить существующее правило sudo </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">210,211</context>
+        </context-group>
+      <target state="translated">Remove the existing sudo rule</target>
+      </trans-unit>
+
+      <trans-unit id="users.sectionPaths">
+        <source>Права на каталоги (ACL)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">223,225</context>
+        </context-group>
+      <target state="translated">Folder permissions (ACL)</target>
+      </trans-unit>
+
+      <trans-unit id="users.aclUnavailable">
+        <source> POSIX ACL недоступны на сервере: управление правами на каталоги отключено. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">229,230</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">80,82</context>
+        </context-group>
+      <target state="translated">POSIX ACLs are unavailable on the server: managing folder permissions is disabled.</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldPath">
+        <source>Путь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">237,238</context>
+        </context-group>
+      <target state="translated">Path</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldAccess">
+        <source>Доступ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">248,249</context>
+        </context-group>
+      <target state="translated">Access</target>
+      </trans-unit>
+
+      <trans-unit id="users.fieldDefaultAcl">
+        <source> По умолчанию </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">264,265</context>
+        </context-group>
+      <target state="translated">Default</target>
+      </trans-unit>
+
+      <trans-unit id="common.remove">
+        <source>Убрать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">267,268</context>
+        </context-group>
+      <target state="translated">Remove</target>
+      </trans-unit>
+
+      <trans-unit id="users.addPathGrant">
+        <source> Добавить путь </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">272,274</context>
+        </context-group>
+      <target state="translated">Add path</target>
+      </trans-unit>
+
+      <trans-unit id="users.sectionAcl">
+        <source>Существующие ACL</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">278,280</context>
+        </context-group>
+      <target state="translated">Existing ACLs</target>
+      </trans-unit>
+
+      <trans-unit id="users.inspectPath">
+        <source>Проверить путь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">282,283</context>
+        </context-group>
+      <target state="translated">Path to inspect</target>
+      </trans-unit>
+
+      <trans-unit id="users.inspect">
+        <source> Проверить ACL </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">286,287</context>
+        </context-group>
+      <target state="translated">Inspect ACLs</target>
+      </trans-unit>
+
+      <trans-unit id="users.revokeAcl">
+        <source> Отозвать </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">301,302</context>
+        </context-group>
+      <target state="translated">Revoke</target>
+      </trans-unit>
+
+      <trans-unit id="users.noAclEntries">
+        <source>ACL-записи для этого пользователя отсутствуют.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">308,309</context>
+        </context-group>
+      <target state="translated">There are no ACL entries for this user.</target>
+      </trans-unit>
+
+      <trans-unit id="users.defaultAcl">
+        <source>по умолчанию</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">315,316</context>
+        </context-group>
+      <target state="translated">default</target>
+      </trans-unit>
+
+      <trans-unit id="users.noAcl">
+        <source>Нет данных ACL. Укажите путь и нажмите «Проверить ACL».</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">325,327</context>
+        </context-group>
+      <target state="translated">No ACL data. Enter a path and press “Inspect ACLs”.</target>
+      </trans-unit>
+
+      <trans-unit id="common.save">
+        <source>Сохранить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">333,334</context>
+        </context-group>
+      <target state="translated">Save</target>
+      </trans-unit>
+
+      <trans-unit id="users.passwordRequired">
+        <source>Укажите пароль.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">522</context>
+        </context-group>
+      <target state="translated">Enter a password.</target>
+      </trans-unit>
+
+      <trans-unit id="users.passwordTooShort">
+        <source>Пароль короче <x id="min" equiv-text="MIN_PASSWORD_LENGTH"/> символов.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">526</context>
+        </context-group>
+      <target state="translated">The password is shorter than <x id="min" equiv-text="MIN_PASSWORD_LENGTH"/> characters.</target>
+      </trans-unit>
+
+      <trans-unit id="users.passwordMismatch">
+        <source>Пароли не совпадают.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">530</context>
+        </context-group>
+      <target state="translated">The passwords do not match.</target>
+      </trans-unit>
+
+      <trans-unit id="users.detailsFailed">
+        <source>Не удалось получить данные пользователя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">582</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">675</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">422</context>
+        </context-group>
+      <target state="translated">The user details could not be loaded.</target>
+      </trans-unit>
+
+      <trans-unit id="users.created">
+        <source>Пользователь создан.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">709</context>
+        </context-group>
+      <target state="translated">User created.</target>
+      </trans-unit>
+
+      <trans-unit id="users.createFailed">
+        <source>Не удалось создать пользователя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">714</context>
+        </context-group>
+      <target state="translated">The user could not be created.</target>
+      </trans-unit>
+
+      <trans-unit id="users.updated">
+        <source>Изменения сохранены.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">739</context>
+        </context-group>
+      <target state="translated">Changes saved.</target>
+      </trans-unit>
+
+      <trans-unit id="users.updateFailed">
+        <source>Не удалось сохранить изменения.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">743</context>
+        </context-group>
+      <target state="translated">The changes could not be saved.</target>
+      </trans-unit>
+
+      <trans-unit id="users.deleted">
+        <source>Пользователь удалён.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">780</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">413</context>
+        </context-group>
+      <target state="translated">User deleted.</target>
+      </trans-unit>
+
+      <trans-unit id="users.deleteFailed">
+        <source>Не удалось удалить пользователя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
+          <context context-type="linenumber">784</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">417</context>
+        </context-group>
+      <target state="translated">The user could not be deleted.</target>
+      </trans-unit>
+
+      <trans-unit id="users.title">
+        <source>Пользователи системы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      <target state="translated">System users</target>
+      </trans-unit>
+
+      <trans-unit id="users.create">
+        <source>Создать пользователя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      <target state="translated">Create user</target>
+      </trans-unit>
+
+      <trans-unit id="users.search">
+        <source>Поиск</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      <target state="translated">Search</target>
+      </trans-unit>
+
+      <trans-unit id="users.includeSystem">
+        <source>Показывать системных пользователей</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">59,62</context>
+        </context-group>
+      <target state="translated">Show system users</target>
+      </trans-unit>
+
+      <trans-unit id="common.refresh">
+        <source>Обновить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">62,65</context>
+        </context-group>
+      <target state="translated">Refresh</target>
+      </trans-unit>
+
+      <trans-unit id="users.colName">
+        <source>Пользователь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">87,88</context>
+        </context-group>
+      <target state="translated">User</target>
+      </trans-unit>
+
+      <trans-unit id="users.colUid">
+        <source>UID / GID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">94,95</context>
+        </context-group>
+      <target state="translated">UID / GID</target>
+      </trans-unit>
+
+      <trans-unit id="users.colFullName">
+        <source>Полное имя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      <target state="translated">Full name</target>
+      </trans-unit>
+
+      <trans-unit id="users.colHome">
+        <source>Домашний каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">104,105</context>
+        </context-group>
+      <target state="translated">Home folder</target>
+      </trans-unit>
+
+      <trans-unit id="users.colShell">
+        <source>Оболочка</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">109,110</context>
+        </context-group>
+      <target state="translated">Shell</target>
+      </trans-unit>
+
+      <trans-unit id="users.colGroups">
+        <source>Группы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">114,115</context>
+        </context-group>
+      <target state="translated">Groups</target>
+      </trans-unit>
+
+      <trans-unit id="users.colFlags">
+        <source>Признаки</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">119,120</context>
+        </context-group>
+      <target state="translated">Flags</target>
+      </trans-unit>
+
+      <trans-unit id="users.flagAdmin">
+        <source>админ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">122,124</context>
+        </context-group>
+      <target state="translated">admin</target>
+      </trans-unit>
+
+      <trans-unit id="users.flagPassword">
+        <source>пароль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">125,127</context>
+        </context-group>
+      <target state="translated">password</target>
+      </trans-unit>
+
+      <trans-unit id="users.flagNoPassword">
+        <source>без пароля</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">127,129</context>
+        </context-group>
+      <target state="translated">no password</target>
+      </trans-unit>
+
+      <trans-unit id="users.colSession">
+        <source>Сессия</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">133,134</context>
+        </context-group>
+      <target state="translated">Session</target>
+      </trans-unit>
+
+      <trans-unit id="users.sessionActive">
+        <source>активна</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">136,137</context>
+        </context-group>
+      <target state="translated">active</target>
+      </trans-unit>
+
+      <trans-unit id="users.sessionNone">
+        <source>нет</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">144,146</context>
+        </context-group>
+      <target state="translated">none</target>
+      </trans-unit>
+
+      <trans-unit id="users.colActions">
+        <source>Действия</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">150,151</context>
+        </context-group>
+      <target state="translated">Actions</target>
+      </trans-unit>
+
+      <trans-unit id="common.edit">
+        <source>Изменить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">152,153</context>
+        </context-group>
+      <target state="translated">Edit</target>
+      </trans-unit>
+
+      <trans-unit id="users.closeSession">
+        <source> Завершить сессию </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">155,156</context>
+        </context-group>
+      <target state="translated">End session</target>
+      </trans-unit>
+
+      <trans-unit id="users.empty">
+        <source>Пользователи не найдены.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">169,171</context>
+        </context-group>
+      <target state="translated">No users found.</target>
+      </trans-unit>
+
+      <trans-unit id="users.loadFailed">
+        <source>Не удалось загрузить список пользователей.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">328</context>
+        </context-group>
+      <target state="translated">The user list could not be loaded.</target>
+      </trans-unit>
+
+      <trans-unit id="users.closeSessionTitle">
+        <source>Завершить сессию</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">347</context>
+        </context-group>
+      <target state="translated">End session</target>
+      </trans-unit>
+
+      <trans-unit id="users.closeSessionSelf">
+        <source>Это ваша текущая сессия. Она будет завершена, и потребуется войти заново. Продолжить?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">349</context>
+        </context-group>
+      <target state="translated">This is your current session. It will end and you will have to sign in again. Continue?</target>
+      </trans-unit>
+
+      <trans-unit id="users.closeSessionConfirm">
+        <source>Завершить активную сессию пользователя <x id="name" equiv-text="user.userName"/>? Ему потребуется войти заново.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">350</context>
+        </context-group>
+      <target state="translated">End the active session of <x id="name" equiv-text="user.userName"/>? They will have to sign in again.</target>
+      </trans-unit>
+
+      <trans-unit id="users.closeSessionConfirmLabel">
+        <source>Завершить сессию</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">351</context>
+        </context-group>
+      <target state="translated">End session</target>
+      </trans-unit>
+
+      <trans-unit id="users.sessionClosed">
+        <source>Сессия завершена.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">364</context>
+        </context-group>
+      <target state="translated">Session ended.</target>
+      </trans-unit>
+
+      <trans-unit id="users.sessionCloseFailed">
+        <source>Не удалось завершить сессию.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
+          <context context-type="linenumber">376</context>
+        </context-group>
+      <target state="translated">The session could not be ended.</target>
+      </trans-unit>
+
+      <trans-unit id="nav.browse">
+        <source>Файлы</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
+      <target state="translated">Files</target>
+      </trans-unit>
+
+      <trans-unit id="nav.history">
+        <source>История</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">51,53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">269</context>
+        </context-group>
+      <target state="translated">History</target>
+      </trans-unit>
+
+      <trans-unit id="nav.users">
+        <source>Пользователи</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">265</context>
+        </context-group>
+      <target state="translated">Users</target>
+      </trans-unit>
+
+      <trans-unit id="nav.profile">
+        <source>Профиль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">61,63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">128,130</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">273</context>
+        </context-group>
+      <target state="translated">Profile</target>
+      </trans-unit>
+
+      <trans-unit id="app.name">
+        <source>Файловый менеджер</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">78,80</context>
+        </context-group>
+      <target state="translated">File manager</target>
+      </trans-unit>
+
+      <trans-unit id="nav.home">
+        <source>Домашний каталог</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">132,133</context>
+        </context-group>
+      <target state="translated">Home folder</target>
+      </trans-unit>
+
+      <trans-unit id="nav.logout">
+        <source>Выйти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">136,138</context>
+        </context-group>
+      <target state="translated">Sign out</target>
+      </trans-unit>
+
+      <trans-unit id="nav.aria">
+        <source>Основная навигация</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">247</context>
+        </context-group>
+      <target state="translated">Main navigation</target>
+      </trans-unit>
+
+      <trans-unit id="nav.toggle">
+        <source>Показать или скрыть меню</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">248</context>
+        </context-group>
+      <target state="translated">Show or hide the navigation</target>
+      </trans-unit>
+
+      <trans-unit id="nav.language">
+        <source>Язык интерфейса</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">249</context>
+        </context-group>
+      <target state="translated">Interface language</target>
+      </trans-unit>
+
+      <trans-unit id="language.ru">
+        <source>Русский</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">290</context>
+        </context-group>
+      <target state="translated">Russian</target>
+      </trans-unit>
+
+      <trans-unit id="language.en">
+        <source>Английский</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/app-shell.ts</context>
+          <context context-type="linenumber">290</context>
+        </context-group>
+      <target state="translated">English</target>
+      </trans-unit>
+
+      <trans-unit id="prompt.required">
+        <source>Введите имя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">147</context>
+        </context-group>
+      <target state="translated">Enter a name.</target>
+      </trans-unit>
+
+      <trans-unit id="prompt.reserved">
+        <source>Недопустимое имя.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      <target state="translated">This name is not allowed.</target>
+      </trans-unit>
+
+      <trans-unit id="prompt.noSlash">
+        <source>Имя не может содержать символ «/».</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">157</context>
+        </context-group>
+      <target state="translated">The name cannot contain “/”.</target>
+      </trans-unit>
+
+      <trans-unit id="delete.emptyOnly">
+        <source>Удалить только пустые</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">219</context>
+        </context-group>
+      <target state="translated">Delete empty ones only</target>
+      </trans-unit>
+
+      <trans-unit id="delete.recursive">
+        <source>Удалить рекурсивно</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">221</context>
+        </context-group>
+      <target state="translated">Delete recursively</target>
+      </trans-unit>
+
+      <trans-unit id="delete.directoriesHint">
+        <source>Каталоги можно удалить рекурсивно вместе с содержимым и вложенными каталогами.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">223</context>
+        </context-group>
+      <target state="translated">Folders can be deleted recursively together with their contents and nested folders.</target>
+      </trans-unit>
+
+      <trans-unit id="delete.title">
+        <source>Подтвердите удаление</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">224</context>
+        </context-group>
+      <target state="translated">Confirm deletion</target>
+      </trans-unit>
+
+      <trans-unit id="delete.messageOne">
+        <source>Удалить «<x id="name" equiv-text="this.data.names[0]"/>»?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">228</context>
+        </context-group>
+      <target state="translated">Delete “<x id="name" equiv-text="this.data.names[0]"/>”?</target>
+      </trans-unit>
+
+      <trans-unit id="delete.messageMany">
+        <source>Удалить выбранные объекты (<x id="count" equiv-text="this.data.names.length"/>)?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">229</context>
+        </context-group>
+      <target state="translated">Delete the selected items (<x id="count" equiv-text="this.data.names.length"/>)?</target>
+      </trans-unit>
+
+      <trans-unit id="common.apply">
+        <source>Применить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">300</context>
+        </context-group>
+      <target state="translated">Apply</target>
+      </trans-unit>
+
+      <trans-unit id="conflict.title">
+        <source>Обнаружены совпадения имён</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">301</context>
+        </context-group>
+      <target state="translated">Name conflicts detected</target>
+      </trans-unit>
+
+      <trans-unit id="conflict.more">
+        <source>…и другие</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">302</context>
+        </context-group>
+      <target state="translated">…and more</target>
+      </trans-unit>
+
+      <trans-unit id="conflict.message">
+        <source>В целевой папке уже есть объекты с такими именами. Выберите действие:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">303</context>
+        </context-group>
+      <target state="translated">The target folder already contains items with the same names. Choose an action:</target>
+      </trans-unit>
+
+      <trans-unit id="properties.title">
+        <source>Свойства</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">398</context>
+        </context-group>
+      <target state="translated">Properties</target>
+      </trans-unit>
+
+      <trans-unit id="properties.name">
+        <source>Имя</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">399</context>
+        </context-group>
+      <target state="translated">Name</target>
+      </trans-unit>
+
+      <trans-unit id="properties.path">
+        <source>Полный путь</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">400</context>
+        </context-group>
+      <target state="translated">Full path</target>
+      </trans-unit>
+
+      <trans-unit id="properties.type">
+        <source>Тип</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">401</context>
+        </context-group>
+      <target state="translated">Type</target>
+      </trans-unit>
+
+      <trans-unit id="properties.size">
+        <source>Размер</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">402</context>
+        </context-group>
+      <target state="translated">Size</target>
+      </trans-unit>
+
+      <trans-unit id="properties.modified">
+        <source>Изменён</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">403</context>
+        </context-group>
+      <target state="translated">Modified</target>
+      </trans-unit>
+
+      <trans-unit id="properties.mode">
+        <source>Права (mode)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">404</context>
+        </context-group>
+      <target state="translated">Permissions (mode)</target>
+      </trans-unit>
+
+      <trans-unit id="properties.owner">
+        <source>Владелец / группа</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">405</context>
+        </context-group>
+      <target state="translated">Owner / group</target>
+      </trans-unit>
+
+      <trans-unit id="properties.access">
+        <source>Доступ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">406</context>
+        </context-group>
+      <target state="translated">Access</target>
+      </trans-unit>
+
+      <trans-unit id="properties.linkTarget">
+        <source>Ссылка на</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">407</context>
+        </context-group>
+      <target state="translated">Links to</target>
+      </trans-unit>
+
+      <trans-unit id="common.close">
+        <source>Закрыть</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
+          <context context-type="linenumber">408</context>
+        </context-group>
+      <target state="translated">Close</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

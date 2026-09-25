@@ -1,0 +1,58 @@
+name: filemanager
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-filemanager}
+      POSTGRES_USER: ${POSTGRES_USER:-filemanager}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-filemanager}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://0.0.0.0:8080
+
+      Database__Provider: postgres
+      Database__ConnectionString: "Host=db;Port=5432;Database=${POSTGRES_DB:-filemanager};Username=${POSTGRES_USER:-filemanager};Password=${POSTGRES_PASSWORD:-filemanager}"
+      Database__MigrateOnStartup: "true"
+
+      # Inside the container the "host" is the container itself.
+      FileManager__BrowseRoots__0: /data
+      FileManager__BrowseRoots__1: /home
+      FileManager__AdminGroups__0: sudo
+      FileManager__Auth__ExposeUserList: ${FM_EXPOSE_USER_LIST:-true}
+
+      # Used by the entrypoint (requirement 5) and by the in-app bootstrap check.
+      FM_BOOTSTRAP_ADMIN_USER: ${FM_BOOTSTRAP_ADMIN_USER:-a-admin}
+      FM_BOOTSTRAP_ADMIN_PASSWORD: ${FM_BOOTSTRAP_ADMIN_PASSWORD:-passwordDemand}
+      FileManager__Bootstrap__AdminUser: ${FM_BOOTSTRAP_ADMIN_USER:-a-admin}
+      FileManager__Bootstrap__AdminPassword: ${FM_BOOTSTRAP_ADMIN_PASSWORD:-passwordDemand}
+      FileManager__Bootstrap__GrantSudo: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - fm-data:/data
+      - fm-home:/home
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  fm-data:
+  fm-home:
