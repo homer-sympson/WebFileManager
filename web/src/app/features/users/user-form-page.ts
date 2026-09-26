@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, computed, inject, signal, viewChild } from '@angular/core';
 import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -96,7 +96,7 @@ const MIN_PASSWORD_LENGTH = 8;
               }
               @if (isNew() && form.controls.userName.hasError('pattern')) {
                 <mat-error i18n="@@users.userNamePattern">
-                  Допустимы строчные латинские буквы, цифры, «_», «-» и «.», первый символ — буква или «_».
+                  До 32 символов: строчные латинские буквы, цифры, «_» и «-», первый символ — буква или «_».
                 </mat-error>
               }
             </mat-form-field>
@@ -145,7 +145,15 @@ const MIN_PASSWORD_LENGTH = 8;
           <div class="rows">
             <mat-form-field appearance="outline" subscriptSizing="dynamic">
               <mat-label i18n="@@users.fieldPassword">Пароль</mat-label>
-              <input matInput type="password" formControlName="password" autocomplete="new-password" />
+              <input
+                #passwordInput
+                matInput
+                type="password"
+                formControlName="password"
+                autocomplete="new-password"
+                (blur)="adoptPasswordValues()"
+                (change)="adoptPasswordValues()"
+              />
               @if (isNew()) {
                 <mat-hint i18n="@@users.passwordHint">Минимум {{ minPasswordLength }} символов.</mat-hint>
               } @else {
@@ -155,7 +163,15 @@ const MIN_PASSWORD_LENGTH = 8;
 
             <mat-form-field appearance="outline" subscriptSizing="dynamic">
               <mat-label i18n="@@users.fieldPasswordConfirm">Повторите пароль</mat-label>
-              <input matInput type="password" formControlName="confirmPassword" autocomplete="new-password" />
+              <input
+                #confirmPasswordInput
+                matInput
+                type="password"
+                formControlName="confirmPassword"
+                autocomplete="new-password"
+                (blur)="adoptPasswordValues()"
+                (change)="adoptPasswordValues()"
+              />
             </mat-form-field>
           </div>
 
@@ -481,6 +497,9 @@ export class UserFormPage {
   protected readonly shells = SHELL_SUGGESTIONS;
   protected readonly accessOptions: readonly PathAccess[] = ['read', 'write', 'readWrite'];
 
+  private readonly passwordInput = viewChild<ElementRef<HTMLInputElement>>('passwordInput');
+  private readonly confirmPasswordInput = viewChild<ElementRef<HTMLInputElement>>('confirmPasswordInput');
+
   protected readonly isNew = signal(true);
   protected readonly name = signal<string>('');
   protected readonly details = signal<HostUserDetails | null>(null);
@@ -495,7 +514,8 @@ export class UserFormPage {
   protected inspectInput = '';
 
   protected readonly form = this.fb.group({
-    userName: ['', [Validators.required, Validators.pattern(/^[a-z_][a-z0-9_.-]*\$?$/)]],
+    // Keep in sync with UserNameValidator on the server: 32 characters max, no dots, no trailing '$'.
+    userName: ['', [Validators.required, Validators.pattern(/^[a-z_][a-z0-9_-]{0,31}$/)]],
     password: [''],
     confirmPassword: [''],
     fullName: [''],
@@ -514,7 +534,12 @@ export class UserFormPage {
     return [...all].sort((left, right) => left.localeCompare(right));
   });
 
-  protected readonly passwordError = computed<string | null>(() => {
+  /**
+   * Password state is deliberately a method rather than a `computed`: reactive form values are plain
+   * properties, not signals, so a computed would be evaluated once and never recomputed — which left
+   * the save button disabled forever after typing a password.
+   */
+  protected passwordError(): string | null {
     const password = this.form.controls.password.value;
     const confirmation = this.form.controls.confirmPassword.value;
 
@@ -531,7 +556,30 @@ export class UserFormPage {
     }
 
     return null;
-  });
+  }
+
+  /**
+   * Password managers can write into the inputs without dispatching events, so Angular never sees the
+   * value. Adopt whatever is in the DOM before validating or saving.
+   */
+  protected adoptPasswordValues(): void {
+    this.adoptPassword('password', this.passwordInput()?.nativeElement.value);
+    this.adoptPassword('confirmPassword', this.confirmPasswordInput()?.nativeElement.value);
+  }
+
+  private adoptPassword(name: 'password' | 'confirmPassword', value: string | undefined): void {
+    if (value === undefined || value === '') {
+      return;
+    }
+
+    const control = this.form.controls[name];
+    if (control.value === value) {
+      return;
+    }
+
+    control.setValue(value, { emitEvent: false });
+    control.markAsDirty();
+  }
 
   constructor() {
     this.capabilities.ensureLoaded().subscribe();
@@ -681,6 +729,9 @@ export class UserFormPage {
   // ------------------------------------------------------------------ saving
 
   protected submit(): void {
+    // Pick up values a password manager may have written straight into the inputs.
+    this.adoptPasswordValues();
+
     if (this.passwordError() !== null) {
       return;
     }

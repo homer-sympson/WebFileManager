@@ -300,7 +300,7 @@ const TRANSLATIONS = {
   'users.updateFailed': 'The changes could not be saved.',
   'users.updated': 'Changes saved.',
   'users.userNamePattern':
-    'Lower-case Latin letters, digits, “_”, “-” and “.” are allowed; the first character must be a letter or “_”.',
+    'Up to 32 characters: lower-case Latin letters, digits, “_” and “-”; the first character must be a letter or “_”.',
   'users.userNameRequired': 'Enter a user name.',
 
   'users.colSession': 'Session',

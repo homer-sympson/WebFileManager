@@ -1493,7 +1493,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">335,337</context>
+          <context context-type="linenumber">351,353</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
@@ -1585,7 +1585,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">158,160</context>
+          <context context-type="linenumber">165,167</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
@@ -1622,12 +1622,12 @@
       </trans-unit>
 
       <trans-unit id="users.userNamePattern">
-        <source> Допустимы строчные латинские буквы, цифры, «_», «-» и «.», первый символ — буква или «_». </source>
+        <source> До 32 символов: строчные латинские буквы, цифры, «_» и «-», первый символ — буква или «_». </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
           <context context-type="linenumber">99,100</context>
         </context-group>
-      <target state="translated">Lower-case Latin letters, digits, “_”, “-” and “.” are allowed; the first character must be a letter or “_”.</target>
+      <target state="translated">Up to 32 characters: lower-case Latin letters, digits, “_” and “-”; the first character must be a letter or “_”.</target>
       </trans-unit>
 
       <trans-unit id="users.fieldFullName">
@@ -1692,7 +1692,7 @@
         <source>Пароль</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">147,148</context>
+          <context context-type="linenumber">147,149</context>
         </context-group>
       <target state="translated">Password</target>
       </trans-unit>
@@ -1701,7 +1701,7 @@
         <source>Минимум <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> символов.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">150,151</context>
+          <context context-type="linenumber">158,159</context>
         </context-group>
       <target state="translated">At least <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> characters.</target>
       </trans-unit>
@@ -1710,7 +1710,7 @@
         <source>Оставьте пустым, чтобы не менять пароль.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">152,154</context>
+          <context context-type="linenumber">160,162</context>
         </context-group>
       <target state="translated">Leave empty to keep the current password.</target>
       </trans-unit>
@@ -1719,7 +1719,7 @@
         <source>Повторите пароль</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">157,158</context>
+          <context context-type="linenumber">165,167</context>
         </context-group>
       <target state="translated">Repeat the password</target>
       </trans-unit>
@@ -1728,7 +1728,7 @@
         <source>Группы</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">168,170</context>
+          <context context-type="linenumber">184,186</context>
         </context-group>
       <target state="translated">Groups</target>
       </trans-unit>
@@ -1737,7 +1737,7 @@
         <source>Группы пользователя</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">172,173</context>
+          <context context-type="linenumber">188,189</context>
         </context-group>
       <target state="translated">User groups</target>
       </trans-unit>
@@ -1746,7 +1746,7 @@
         <source>Выберите группы</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">178,180</context>
+          <context context-type="linenumber">194,196</context>
         </context-group>
       <target state="translated">Select groups</target>
       </trans-unit>
@@ -1755,7 +1755,7 @@
         <source>Добавить группу</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">187,188</context>
+          <context context-type="linenumber">203,204</context>
         </context-group>
       <target state="translated">Add a group</target>
       </trans-unit>
@@ -1764,7 +1764,7 @@
         <source> Добавить группу </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">192,193</context>
+          <context context-type="linenumber">208,209</context>
         </context-group>
       <target state="translated">Add group</target>
       </trans-unit>
@@ -1773,7 +1773,7 @@
         <source>Права sudo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">198,200</context>
+          <context context-type="linenumber">214,216</context>
         </context-group>
       <target state="translated">sudo permissions</target>
       </trans-unit>
@@ -1782,7 +1782,7 @@
         <source> Разрешить sudo </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">201,202</context>
+          <context context-type="linenumber">217,218</context>
         </context-group>
       <target state="translated">Allow sudo</target>
       </trans-unit>
@@ -1791,7 +1791,7 @@
         <source> sudo без запроса пароля (NOPASSWD) </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">205,207</context>
+          <context context-type="linenumber">221,223</context>
         </context-group>
       <target state="translated">sudo without a password (NOPASSWD)</target>
       </trans-unit>
@@ -1800,7 +1800,7 @@
         <source> Удалить существующее правило sudo </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">210,211</context>
+          <context context-type="linenumber">226,227</context>
         </context-group>
       <target state="translated">Remove the existing sudo rule</target>
       </trans-unit>
@@ -1809,7 +1809,7 @@
         <source>Права на каталоги (ACL)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">223,225</context>
+          <context context-type="linenumber">239,241</context>
         </context-group>
       <target state="translated">Folder permissions (ACL)</target>
       </trans-unit>
@@ -1818,11 +1818,11 @@
         <source> POSIX ACL недоступны на сервере: управление правами на каталоги отключено. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">229,230</context>
+          <context context-type="linenumber">245,246</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">80,82</context>
+          <context context-type="linenumber">87,89</context>
         </context-group>
       <target state="translated">POSIX ACLs are unavailable on the server: managing folder permissions is disabled.</target>
       </trans-unit>
@@ -1831,7 +1831,7 @@
         <source>Путь</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">237,238</context>
+          <context context-type="linenumber">253,254</context>
         </context-group>
       <target state="translated">Path</target>
       </trans-unit>
@@ -1840,7 +1840,7 @@
         <source>Доступ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">248,249</context>
+          <context context-type="linenumber">264,265</context>
         </context-group>
       <target state="translated">Access</target>
       </trans-unit>
@@ -1849,7 +1849,7 @@
         <source> По умолчанию </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">264,265</context>
+          <context context-type="linenumber">280,281</context>
         </context-group>
       <target state="translated">Default</target>
       </trans-unit>
@@ -1858,7 +1858,7 @@
         <source>Убрать</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">267,268</context>
+          <context context-type="linenumber">283,284</context>
         </context-group>
       <target state="translated">Remove</target>
       </trans-unit>
@@ -1867,7 +1867,7 @@
         <source> Добавить путь </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">272,274</context>
+          <context context-type="linenumber">288,290</context>
         </context-group>
       <target state="translated">Add path</target>
       </trans-unit>
@@ -1876,7 +1876,7 @@
         <source>Существующие ACL</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">278,280</context>
+          <context context-type="linenumber">294,296</context>
         </context-group>
       <target state="translated">Existing ACLs</target>
       </trans-unit>
@@ -1885,7 +1885,7 @@
         <source>Проверить путь</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">282,283</context>
+          <context context-type="linenumber">298,299</context>
         </context-group>
       <target state="translated">Path to inspect</target>
       </trans-unit>
@@ -1894,7 +1894,7 @@
         <source> Проверить ACL </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">286,287</context>
+          <context context-type="linenumber">302,303</context>
         </context-group>
       <target state="translated">Inspect ACLs</target>
       </trans-unit>
@@ -1903,7 +1903,7 @@
         <source> Отозвать </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">301,302</context>
+          <context context-type="linenumber">317,318</context>
         </context-group>
       <target state="translated">Revoke</target>
       </trans-unit>
@@ -1912,7 +1912,7 @@
         <source>ACL-записи для этого пользователя отсутствуют.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">308,309</context>
+          <context context-type="linenumber">324,325</context>
         </context-group>
       <target state="translated">There are no ACL entries for this user.</target>
       </trans-unit>
@@ -1921,7 +1921,7 @@
         <source>по умолчанию</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">315,316</context>
+          <context context-type="linenumber">331,332</context>
         </context-group>
       <target state="translated">default</target>
       </trans-unit>
@@ -1930,7 +1930,7 @@
         <source>Нет данных ACL. Укажите путь и нажмите «Проверить ACL».</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">325,327</context>
+          <context context-type="linenumber">341,343</context>
         </context-group>
       <target state="translated">No ACL data. Enter a path and press “Inspect ACLs”.</target>
       </trans-unit>
@@ -1939,7 +1939,7 @@
         <source>Сохранить</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">333,334</context>
+          <context context-type="linenumber">349,350</context>
         </context-group>
       <target state="translated">Save</target>
       </trans-unit>
@@ -1948,7 +1948,7 @@
         <source>Укажите пароль.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">522</context>
+          <context context-type="linenumber">547</context>
         </context-group>
       <target state="translated">Enter a password.</target>
       </trans-unit>
@@ -1957,7 +1957,7 @@
         <source>Пароль короче <x id="min" equiv-text="MIN_PASSWORD_LENGTH"/> символов.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">526</context>
+          <context context-type="linenumber">551</context>
         </context-group>
       <target state="translated">The password is shorter than <x id="min" equiv-text="MIN_PASSWORD_LENGTH"/> characters.</target>
       </trans-unit>
@@ -1966,7 +1966,7 @@
         <source>Пароли не совпадают.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">530</context>
+          <context context-type="linenumber">555</context>
         </context-group>
       <target state="translated">The passwords do not match.</target>
       </trans-unit>
@@ -1975,15 +1975,15 @@
         <source>Не удалось получить данные пользователя.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">582</context>
+          <context context-type="linenumber">630</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">675</context>
+          <context context-type="linenumber">723</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">422</context>
+          <context context-type="linenumber">430</context>
         </context-group>
       <target state="translated">The user details could not be loaded.</target>
       </trans-unit>
@@ -1992,7 +1992,7 @@
         <source>Пользователь создан.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">709</context>
+          <context context-type="linenumber">760</context>
         </context-group>
       <target state="translated">User created.</target>
       </trans-unit>
@@ -2001,7 +2001,7 @@
         <source>Не удалось создать пользователя.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">714</context>
+          <context context-type="linenumber">765</context>
         </context-group>
       <target state="translated">The user could not be created.</target>
       </trans-unit>
@@ -2010,7 +2010,7 @@
         <source>Изменения сохранены.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">739</context>
+          <context context-type="linenumber">790</context>
         </context-group>
       <target state="translated">Changes saved.</target>
       </trans-unit>
@@ -2019,7 +2019,7 @@
         <source>Не удалось сохранить изменения.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">743</context>
+          <context context-type="linenumber">794</context>
         </context-group>
       <target state="translated">The changes could not be saved.</target>
       </trans-unit>
@@ -2028,11 +2028,11 @@
         <source>Пользователь удалён.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">780</context>
+          <context context-type="linenumber">831</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">413</context>
+          <context context-type="linenumber">421</context>
         </context-group>
       <target state="translated">User deleted.</target>
       </trans-unit>
@@ -2041,11 +2041,11 @@
         <source>Не удалось удалить пользователя.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">784</context>
+          <context context-type="linenumber">835</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">417</context>
+          <context context-type="linenumber">425</context>
         </context-group>
       <target state="translated">The user could not be deleted.</target>
       </trans-unit>
@@ -2081,7 +2081,7 @@
         <source>Показывать системных пользователей</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">59,62</context>
+          <context context-type="linenumber">66,69</context>
         </context-group>
       <target state="translated">Show system users</target>
       </trans-unit>
@@ -2090,7 +2090,7 @@
         <source>Обновить</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">62,65</context>
+          <context context-type="linenumber">69,72</context>
         </context-group>
       <target state="translated">Refresh</target>
       </trans-unit>
@@ -2099,7 +2099,7 @@
         <source>Пользователь</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">87,88</context>
+          <context context-type="linenumber">94,95</context>
         </context-group>
       <target state="translated">User</target>
       </trans-unit>
@@ -2108,7 +2108,7 @@
         <source>UID / GID</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">94,95</context>
+          <context context-type="linenumber">101,102</context>
         </context-group>
       <target state="translated">UID / GID</target>
       </trans-unit>
@@ -2117,7 +2117,7 @@
         <source>Полное имя</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">99,100</context>
+          <context context-type="linenumber">106,107</context>
         </context-group>
       <target state="translated">Full name</target>
       </trans-unit>
@@ -2126,7 +2126,7 @@
         <source>Домашний каталог</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">104,105</context>
+          <context context-type="linenumber">111,112</context>
         </context-group>
       <target state="translated">Home folder</target>
       </trans-unit>
@@ -2135,7 +2135,7 @@
         <source>Оболочка</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">109,110</context>
+          <context context-type="linenumber">116,117</context>
         </context-group>
       <target state="translated">Shell</target>
       </trans-unit>
@@ -2144,7 +2144,7 @@
         <source>Группы</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">114,115</context>
+          <context context-type="linenumber">121,122</context>
         </context-group>
       <target state="translated">Groups</target>
       </trans-unit>
@@ -2153,7 +2153,7 @@
         <source>Признаки</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">119,120</context>
+          <context context-type="linenumber">126,127</context>
         </context-group>
       <target state="translated">Flags</target>
       </trans-unit>
@@ -2162,7 +2162,7 @@
         <source>админ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">122,124</context>
+          <context context-type="linenumber">129,131</context>
         </context-group>
       <target state="translated">admin</target>
       </trans-unit>
@@ -2171,7 +2171,7 @@
         <source>пароль</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">125,127</context>
+          <context context-type="linenumber">132,134</context>
         </context-group>
       <target state="translated">password</target>
       </trans-unit>
@@ -2180,7 +2180,7 @@
         <source>без пароля</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">127,129</context>
+          <context context-type="linenumber">134,136</context>
         </context-group>
       <target state="translated">no password</target>
       </trans-unit>
@@ -2189,7 +2189,7 @@
         <source>Сессия</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">133,134</context>
+          <context context-type="linenumber">140,141</context>
         </context-group>
       <target state="translated">Session</target>
       </trans-unit>
@@ -2198,7 +2198,7 @@
         <source>активна</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">136,137</context>
+          <context context-type="linenumber">143,144</context>
         </context-group>
       <target state="translated">active</target>
       </trans-unit>
@@ -2207,7 +2207,7 @@
         <source>нет</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">144,146</context>
+          <context context-type="linenumber">151,153</context>
         </context-group>
       <target state="translated">none</target>
       </trans-unit>
@@ -2216,7 +2216,7 @@
         <source>Действия</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">150,151</context>
+          <context context-type="linenumber">157,158</context>
         </context-group>
       <target state="translated">Actions</target>
       </trans-unit>
@@ -2225,7 +2225,7 @@
         <source>Изменить</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">152,153</context>
+          <context context-type="linenumber">159,160</context>
         </context-group>
       <target state="translated">Edit</target>
       </trans-unit>
@@ -2234,7 +2234,7 @@
         <source> Завершить сессию </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">155,156</context>
+          <context context-type="linenumber">162,163</context>
         </context-group>
       <target state="translated">End session</target>
       </trans-unit>
@@ -2243,7 +2243,7 @@
         <source>Пользователи не найдены.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">169,171</context>
+          <context context-type="linenumber">176,178</context>
         </context-group>
       <target state="translated">No users found.</target>
       </trans-unit>
@@ -2252,7 +2252,7 @@
         <source>Не удалось загрузить список пользователей.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">328</context>
+          <context context-type="linenumber">336</context>
         </context-group>
       <target state="translated">The user list could not be loaded.</target>
       </trans-unit>
@@ -2261,7 +2261,7 @@
         <source>Завершить сессию</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">347</context>
+          <context context-type="linenumber">355</context>
         </context-group>
       <target state="translated">End session</target>
       </trans-unit>
@@ -2270,7 +2270,7 @@
         <source>Это ваша текущая сессия. Она будет завершена, и потребуется войти заново. Продолжить?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">349</context>
+          <context context-type="linenumber">357</context>
         </context-group>
       <target state="translated">This is your current session. It will end and you will have to sign in again. Continue?</target>
       </trans-unit>
@@ -2279,7 +2279,7 @@
         <source>Завершить активную сессию пользователя <x id="name" equiv-text="user.userName"/>? Ему потребуется войти заново.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">350</context>
+          <context context-type="linenumber">358</context>
         </context-group>
       <target state="translated">End the active session of <x id="name" equiv-text="user.userName"/>? They will have to sign in again.</target>
       </trans-unit>
@@ -2288,7 +2288,7 @@
         <source>Завершить сессию</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">351</context>
+          <context context-type="linenumber">359</context>
         </context-group>
       <target state="translated">End session</target>
       </trans-unit>
@@ -2297,7 +2297,7 @@
         <source>Сессия завершена.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">364</context>
+          <context context-type="linenumber">372</context>
         </context-group>
       <target state="translated">Session ended.</target>
       </trans-unit>
@@ -2306,7 +2306,7 @@
         <source>Не удалось завершить сессию.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">376</context>
+          <context context-type="linenumber">384</context>
         </context-group>
       <target state="translated">The session could not be ended.</target>
       </trans-unit>

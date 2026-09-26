@@ -52,7 +52,14 @@ import {
       <div class="filters">
         <mat-form-field appearance="outline" subscriptSizing="dynamic" class="search">
           <mat-label i18n="@@users.search">Поиск</mat-label>
-          <input matInput type="search" name="search" autocomplete="off" [(ngModel)]="search" />
+          <input
+            matInput
+            type="search"
+            name="search"
+            autocomplete="off"
+            [ngModel]="search()"
+            (ngModelChange)="search.set($event)"
+          />
         </mat-form-field>
 
         <mat-checkbox [checked]="includeSystem()" (change)="setIncludeSystem($event.checked)">
@@ -275,7 +282,8 @@ export class UserListPage {
   protected readonly loading = signal(false);
   protected readonly error = signal<string | null>(null);
   protected readonly includeSystem = signal(false);
-  protected search = '';
+  // A signal: `filtered` is a computed and would never see a plain field change.
+  protected readonly search = signal('');
 
   protected readonly aclAvailable = computed(() => this.list()?.aclAvailable ?? false);
 
@@ -295,7 +303,7 @@ export class UserListPage {
 
   protected readonly filtered = computed<readonly HostUser[]>(() => {
     const users = this.list()?.users ?? [];
-    const term = this.search.trim().toLowerCase();
+    const term = this.search().trim().toLowerCase();
 
     if (term.length === 0) {
       return users;

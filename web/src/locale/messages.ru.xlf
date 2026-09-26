@@ -1168,7 +1168,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">335,337</context>
+          <context context-type="linenumber">351,353</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
@@ -1244,7 +1244,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">158,160</context>
+          <context context-type="linenumber">165,167</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/dialogs/dialogs.ts</context>
@@ -1273,7 +1273,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="users.userNamePattern" datatype="html">
-        <source> Допустимы строчные латинские буквы, цифры, «_», «-» и «.», первый символ — буква или «_». </source>
+        <source> До 32 символов: строчные латинские буквы, цифры, «_» и «-», первый символ — буква или «_». </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
           <context context-type="linenumber">99,100</context>
@@ -1329,286 +1329,286 @@
         <source>Пароль</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">147,148</context>
+          <context context-type="linenumber">147,149</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.passwordHint" datatype="html">
         <source>Минимум <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> символов.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">150,151</context>
+          <context context-type="linenumber">158,159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.passwordKeepHint" datatype="html">
         <source>Оставьте пустым, чтобы не менять пароль.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">152,154</context>
+          <context context-type="linenumber">160,162</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldPasswordConfirm" datatype="html">
         <source>Повторите пароль</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">157,158</context>
+          <context context-type="linenumber">165,167</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sectionGroups" datatype="html">
         <source>Группы</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">168,170</context>
+          <context context-type="linenumber">184,186</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldGroups" datatype="html">
         <source>Группы пользователя</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">172,173</context>
+          <context context-type="linenumber">188,189</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.groupsPlaceholder" datatype="html">
         <source>Выберите группы</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">178,180</context>
+          <context context-type="linenumber">194,196</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldNewGroup" datatype="html">
         <source>Добавить группу</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">187,188</context>
+          <context context-type="linenumber">203,204</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.addGroup" datatype="html">
         <source> Добавить группу </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">192,193</context>
+          <context context-type="linenumber">208,209</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sectionSudo" datatype="html">
         <source>Права sudo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">198,200</context>
+          <context context-type="linenumber">214,216</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldGrantSudo" datatype="html">
         <source> Разрешить sudo </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">201,202</context>
+          <context context-type="linenumber">217,218</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldSudoNopasswd" datatype="html">
         <source> sudo без запроса пароля (NOPASSWD) </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">205,207</context>
+          <context context-type="linenumber">221,223</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldRevokeSudo" datatype="html">
         <source> Удалить существующее правило sudo </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">210,211</context>
+          <context context-type="linenumber">226,227</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sectionPaths" datatype="html">
         <source>Права на каталоги (ACL)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">223,225</context>
+          <context context-type="linenumber">239,241</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.aclUnavailable" datatype="html">
         <source> POSIX ACL недоступны на сервере: управление правами на каталоги отключено. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">229,230</context>
+          <context context-type="linenumber">245,246</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">80,82</context>
+          <context context-type="linenumber">87,89</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldPath" datatype="html">
         <source>Путь</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">237,238</context>
+          <context context-type="linenumber">253,254</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldAccess" datatype="html">
         <source>Доступ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">248,249</context>
+          <context context-type="linenumber">264,265</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.fieldDefaultAcl" datatype="html">
         <source> По умолчанию </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">264,265</context>
+          <context context-type="linenumber">280,281</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.remove" datatype="html">
         <source>Убрать</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">267,268</context>
+          <context context-type="linenumber">283,284</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.addPathGrant" datatype="html">
         <source> Добавить путь </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">272,274</context>
+          <context context-type="linenumber">288,290</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sectionAcl" datatype="html">
         <source>Существующие ACL</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">278,280</context>
+          <context context-type="linenumber">294,296</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.inspectPath" datatype="html">
         <source>Проверить путь</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">282,283</context>
+          <context context-type="linenumber">298,299</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.inspect" datatype="html">
         <source> Проверить ACL </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">286,287</context>
+          <context context-type="linenumber">302,303</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.revokeAcl" datatype="html">
         <source> Отозвать </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">301,302</context>
+          <context context-type="linenumber">317,318</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.noAclEntries" datatype="html">
         <source>ACL-записи для этого пользователя отсутствуют.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">308,309</context>
+          <context context-type="linenumber">324,325</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.defaultAcl" datatype="html">
         <source>по умолчанию</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">315,316</context>
+          <context context-type="linenumber">331,332</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.noAcl" datatype="html">
         <source>Нет данных ACL. Укажите путь и нажмите «Проверить ACL».</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">325,327</context>
+          <context context-type="linenumber">341,343</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.save" datatype="html">
         <source>Сохранить</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">333,334</context>
+          <context context-type="linenumber">349,350</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.passwordRequired" datatype="html">
         <source>Укажите пароль.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">522</context>
+          <context context-type="linenumber">547</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.passwordTooShort" datatype="html">
         <source>Пароль короче <x id="min" equiv-text="MIN_PASSWORD_LENGTH"/> символов.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">526</context>
+          <context context-type="linenumber">551</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.passwordMismatch" datatype="html">
         <source>Пароли не совпадают.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">530</context>
+          <context context-type="linenumber">555</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.detailsFailed" datatype="html">
         <source>Не удалось получить данные пользователя.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">582</context>
+          <context context-type="linenumber">630</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">675</context>
+          <context context-type="linenumber">723</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">422</context>
+          <context context-type="linenumber">430</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.created" datatype="html">
         <source>Пользователь создан.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">709</context>
+          <context context-type="linenumber">760</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.createFailed" datatype="html">
         <source>Не удалось создать пользователя.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">714</context>
+          <context context-type="linenumber">765</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.updated" datatype="html">
         <source>Изменения сохранены.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">739</context>
+          <context context-type="linenumber">790</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.updateFailed" datatype="html">
         <source>Не удалось сохранить изменения.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">743</context>
+          <context context-type="linenumber">794</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.deleted" datatype="html">
         <source>Пользователь удалён.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">780</context>
+          <context context-type="linenumber">831</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">413</context>
+          <context context-type="linenumber">421</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.deleteFailed" datatype="html">
         <source>Не удалось удалить пользователя.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-form-page.ts</context>
-          <context context-type="linenumber">784</context>
+          <context context-type="linenumber">835</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">417</context>
+          <context context-type="linenumber">425</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.title" datatype="html">
@@ -1636,182 +1636,182 @@
         <source>Показывать системных пользователей</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">59,62</context>
+          <context context-type="linenumber">66,69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.refresh" datatype="html">
         <source>Обновить</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">62,65</context>
+          <context context-type="linenumber">69,72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colName" datatype="html">
         <source>Пользователь</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">87,88</context>
+          <context context-type="linenumber">94,95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colUid" datatype="html">
         <source>UID / GID</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">94,95</context>
+          <context context-type="linenumber">101,102</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colFullName" datatype="html">
         <source>Полное имя</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">99,100</context>
+          <context context-type="linenumber">106,107</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colHome" datatype="html">
         <source>Домашний каталог</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">104,105</context>
+          <context context-type="linenumber">111,112</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colShell" datatype="html">
         <source>Оболочка</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">109,110</context>
+          <context context-type="linenumber">116,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colGroups" datatype="html">
         <source>Группы</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">114,115</context>
+          <context context-type="linenumber">121,122</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colFlags" datatype="html">
         <source>Признаки</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">119,120</context>
+          <context context-type="linenumber">126,127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.flagAdmin" datatype="html">
         <source>админ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">122,124</context>
+          <context context-type="linenumber">129,131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.flagPassword" datatype="html">
         <source>пароль</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">125,127</context>
+          <context context-type="linenumber">132,134</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.flagNoPassword" datatype="html">
         <source>без пароля</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">127,129</context>
+          <context context-type="linenumber">134,136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colSession" datatype="html">
         <source>Сессия</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">133,134</context>
+          <context context-type="linenumber">140,141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sessionActive" datatype="html">
         <source>активна</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">136,137</context>
+          <context context-type="linenumber">143,144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sessionNone" datatype="html">
         <source>нет</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">144,146</context>
+          <context context-type="linenumber">151,153</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.colActions" datatype="html">
         <source>Действия</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">150,151</context>
+          <context context-type="linenumber">157,158</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.edit" datatype="html">
         <source>Изменить</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">152,153</context>
+          <context context-type="linenumber">159,160</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.closeSession" datatype="html">
         <source> Завершить сессию </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">155,156</context>
+          <context context-type="linenumber">162,163</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.empty" datatype="html">
         <source>Пользователи не найдены.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">169,171</context>
+          <context context-type="linenumber">176,178</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.loadFailed" datatype="html">
         <source>Не удалось загрузить список пользователей.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">328</context>
+          <context context-type="linenumber">336</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.closeSessionTitle" datatype="html">
         <source>Завершить сессию</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">347</context>
+          <context context-type="linenumber">355</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.closeSessionSelf" datatype="html">
         <source>Это ваша текущая сессия. Она будет завершена, и потребуется войти заново. Продолжить?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">349</context>
+          <context context-type="linenumber">357</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.closeSessionConfirm" datatype="html">
         <source>Завершить активную сессию пользователя <x id="name" equiv-text="user.userName"/>? Ему потребуется войти заново.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">350</context>
+          <context context-type="linenumber">358</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.closeSessionConfirmLabel" datatype="html">
         <source>Завершить сессию</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">351</context>
+          <context context-type="linenumber">359</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sessionClosed" datatype="html">
         <source>Сессия завершена.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">364</context>
+          <context context-type="linenumber">372</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users.sessionCloseFailed" datatype="html">
         <source>Не удалось завершить сессию.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/users/user-list-page.ts</context>
-          <context context-type="linenumber">376</context>
+          <context context-type="linenumber">384</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.browse" datatype="html">
