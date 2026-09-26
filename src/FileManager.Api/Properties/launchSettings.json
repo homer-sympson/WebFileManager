@@ -29,8 +29,9 @@
       "useSSL": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "Database__Provider": "postgres",
-        "Database__ConnectionString": "Host=host.docker.internal;Port=55432;Database=filemanager;Username=filemanager;Password=filemanager",
+        "Database__Provider": "sqlite",
+        "Database__ConnectionString": "Data Source=/tmp/filemanager-debug.db",
+        "Database__MigrateOnStartup": "true",
         "FileManager__BrowseRoots__0": "/data",
         "FileManager__Auth__AllowDevelopmentBypass": "true",
         "FileManager__Auth__ExposeUserList": "true",

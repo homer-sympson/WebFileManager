@@ -210,6 +210,21 @@ docker compose run --rm --entrypoint /bin/sh app -c \
 запускаете сборку со старым кодом (обрывки кэша) или архитектуру вне x86-64/aarch64. Проверьте
 `docker compose build --no-cache app` и `uname -m`.
 
+### Если docker падает с `ports are not available … forbidden by its access permissions`
+
+Это Windows: выбранный порт хоста попал в диапазон, зарезервированный Hyper-V/WSL (обычно
+49152–65535) или уже занят. Проверить и выбрать порт вне диапазона:
+
+```powershell
+netsh interface ipv4 show excludedportrange protocol=tcp
+# вариант: освободить резервирование на время
+net stop winnat ; docker compose up ; net start winnat
+```
+
+В поставляемом `docker-compose.yml` наружу публикуется только порт приложения (`8080`, ниже
+зарезервированного диапазона), база данных — нет, поэтому ошибка возможна лишь для ваших
+собственных пробросов портов.
+
 ### Отладка в Docker из Visual Studio 2026
 
 Проект подготовлен так, чтобы отлаживать API прямо внутри Linux-контейнера (точки останова, шаг с
@@ -220,7 +235,7 @@ docker compose run --rm --entrypoint /bin/sh app -c \
 | Файл | Роль |
 |---|---|
 | `Dockerfile` | стадии в конвенции Visual Studio: `base` (runtime + PAM/acl/passwd/sudo) — на её основе VS собирает отладочный контейнер, `web`/`build`/`publish`/`final` — продакшен-образ. `final` намеренно последняя: `docker compose build` собирает её, а VS передаёт `--target base` |
-| `docker-compose.yml` | `db` + `app` (образ `filemanager-app`, контекст — корень репозитория, БД публикуется на `127.0.0.1:55432` для второго профиля) |
+| `docker-compose.yml` | `db` + `app` (образ `filemanager-app`, контекст — корень репозитория; порты БД наружу не публикуются) |
 | `docker-compose.dcproj` | проект оркестрации VS («Docker Compose»); добавлен в `FileManager.slnx` — CLI помечает его как *not selected for building*, поэтому `dotnet build`/`dotnet test` не ломаются |
 | `src/FileManager.Api/FileManager.Api.csproj` | `DockerfileFile=..\..\Dockerfile`, `DockerComposeProjectPath=..\..\docker-compose.dcproj`, `DockerDefaultTargetOS=Linux` |
 | `Properties/launchSettings.json` | профили **Docker Compose** (рекомендуется) и **Docker** (одиночный проект) |
@@ -265,16 +280,32 @@ cd web && npm start          # dev-server на :4200 проксирует /api �
 
 Это даёт полноценный UI поверх API, работающего в контейнере.
 
-Профиль **Docker** (одиночный проект) — альтернатива, если нужен только API-контейнер без compose:
+Профиль **Docker** (одиночный проект) — альтернатива, если нужен только API-контейнер без compose.
+Он работает автономно на SQLite (файл `/tmp/filemanager-debug.db` внутри контейнера), поэтому не
+требует ни запущенного `db`, ни публикации портов на хост:
 
-```bash
-docker compose up -d db      # БД публикуется на 127.0.0.1:55432
+```jsonc
+// Properties/launchSettings.json, профиль "Docker"
+"Database__Provider": "sqlite",
+"Database__ConnectionString": "Data Source=/tmp/filemanager-debug.db"
 ```
 
-Профиль берёт `DockerfileFile` из корня и ходит в БД через `host.docker.internal:55432`
-(строка подключения уже прописана в профиле; пароль должен совпадать с `POSTGRES_PASSWORD`).
-Если VS в этом профиле выберет контекст сборки не от корня репозитория, сборка упадёт на `COPY
-global.json ...` — тогда используйте профиль «Docker Compose».
+Если в этом профиле всё же нужен PostgreSQL из compose, опубликуйте его порт на хост, взяв порт
+**ниже 49152** (диапазон 49152–65535 на Windows зарезервирован Hyper-V/WSL, и docker падает с
+`An attempt was made to access a socket in a way forbidden by its access permissions`):
+
+```bash
+# docker-compose.local-db.yml (создаётся только при необходимости)
+# services:
+#   db:
+#     ports: [ "127.0.0.1:5433:5432" ]
+docker compose -f docker-compose.yml -f docker-compose.local-db.yml up -d db
+```
+
+…и укажите в профиле `"Database__ConnectionString": "Host=host.docker.internal;Port=5433;Database=filemanager;Username=filemanager;Password=<POSTGRES_PASSWORD>"`.
+
+Профиль берёт `DockerfileFile` из корня репозитория. Если VS выберет контекст сборки не от корня,
+сборка упадёт на `COPY global.json ...` — тогда используйте профиль «Docker Compose».
 
 ---
 
