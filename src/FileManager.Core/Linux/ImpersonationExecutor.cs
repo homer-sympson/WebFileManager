@@ -287,6 +287,11 @@ public sealed class LinuxImpersonationExecutor : IImpersonationExecutor, IDispos
         Check(Libc.SetResUid(uint.MaxValue, RootId, uint.MaxValue), "setresuid(root)");
         Check(Libc.SetResGid(uint.MaxValue, RootId, uint.MaxValue), "setresgid(root)");
         Check(Libc.SetGroups([RootId]), "setgroups(root)");
+
+        // Changing effective credentials makes the process non-dumpable, which stops a debugger from
+        // attaching to it (Visual Studio's vsdbg) and blocks dotnet-dump/core dumps. The flag lives on
+        // the process, so it has to be restored after every round trip.
+        Libc.SetDumpable();
     }
 
     private static void Check(int rc, string call)

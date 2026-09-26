@@ -27,6 +27,7 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "publishAllPorts": true,
       "useSSL": false,
+      "containerRunArguments": "--cap-add=SYS_PTRACE",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "Database__Provider": "sqlite",

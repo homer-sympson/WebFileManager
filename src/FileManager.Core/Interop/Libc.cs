@@ -40,6 +40,12 @@ internal static class Libc
     [DllImport(Library, SetLastError = true, EntryPoint = "stat")]
     private static extern int stat(string path, IntPtr buffer);
 
+    [DllImport(Library, SetLastError = true, EntryPoint = "prctl")]
+    private static extern int prctl(int option, ulong arg2, ulong arg3, ulong arg4, ulong arg5);
+
+    /// <summary>PR_SET_DUMPABLE</summary>
+    private const int PrSetDumpable = 4;
+
     [DllImport(Library, SetLastError = true, EntryPoint = "syscall")]
     private static extern long Syscall(long number, uint a, uint b, uint c);
 
@@ -123,6 +129,14 @@ internal static class Libc
     internal static uint GetGid() => getgid();
 
     internal static int Stat(string path, IntPtr buffer) => stat(path, buffer);
+
+    /// <summary>
+    /// Re-enables core dumps and ptrace attach for the process. The kernel clears the dumpable flag
+    /// whenever effective credentials change (which is exactly what the impersonation workers do), and
+    /// a non-dumpable process cannot be attached to by a debugger or dumped with dotnet-dump.
+    /// Best effort: failures are ignored.
+    /// </summary>
+    internal static void SetDumpable() => prctl(PrSetDumpable, 1, 0, 0, 0);
 
     /// <summary>
     /// x86-64 glibc <c>struct stat</c>. Other architectures report "unknown owner" instead of guessing.

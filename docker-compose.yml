@@ -59,6 +59,13 @@ services:
     volumes:
       - fm-data:/data
       - fm-home:/home
+    # Docker's default seccomp profile only allows ptrace with CAP_SYS_PTRACE, so without this the
+    # debugger cannot ATTACH to the already running app (Visual Studio's vsdbg reports "insufficient
+    # privileges… must be running with root permissions"). Launching the app under the debugger (F5 on
+    # the "Docker Compose" launch profile) does not need it. Remove the line for production if you
+    # prefer the tighter default.
+    cap_add:
+      - SYS_PTRACE
     restart: unless-stopped
 
 volumes:
