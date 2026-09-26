@@ -1,0 +1,40 @@
+# Build context filter for Docker (and for Visual Studio container tools).
+# Keeps builds fast and reproducible: nothing that is produced on the host or that is secret
+# should ever travel into the image build.
+
+# host build output
+**/bin/
+**/obj/
+
+# node / angular
+**/node_modules/
+**/.angular/
+**/dist/
+**/*.tsbuildinfo
+
+# the SPA is built inside the image (web stage) and must never come from the working tree
+src/FileManager.Api/wwwroot/
+
+# caches kept inside the workspace by the local tooling
+.nuget/
+.npm-cache/
+.dotnet-home/
+.npm/
+
+# IDE / VCS
+.vs/
+.vscode/
+.idea/
+.git/
+.gitattributes
+*.user
+*.suo
+
+# secrets and local state
+.env
+.env.local
+*.db
+*.db-shm
+*.db-wal
+TestResults/
+artifacts/

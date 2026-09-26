@@ -14,17 +14,26 @@ services:
       interval: 5s
       timeout: 5s
       retries: 20
+    # Published on the loopback interface only, so the Visual Studio "Docker" (single project)
+    # launch profile can reach this database through host.docker.internal:55432.
+    # Not needed for the "Docker Compose" profile, which talks to the `db` service directly.
+    ports:
+      - "127.0.0.1:${FM_DB_HOST_PORT:-55432}:5432"
     restart: unless-stopped
 
   app:
+    # An explicit image name keeps Visual Studio container tools predictable.
+    image: filemanager-app
     build:
       context: .
       dockerfile: Dockerfile
+      # No `target:` on purpose - the last stage (final) is the production image and
+      # Visual Studio overrides the target with `base` when it starts a debug session.
     env_file:
       - .env
     environment:
-      ASPNETCORE_ENVIRONMENT: Production
-      ASPNETCORE_URLS: http://0.0.0.0:8080
+      # Switch to Development (e.g. in .env) for detailed errors while debugging.
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
 
       Database__Provider: postgres
       Database__ConnectionString: "Host=db;Port=5432;Database=${POSTGRES_DB:-filemanager};Username=${POSTGRES_USER:-filemanager};Password=${POSTGRES_PASSWORD:-filemanager}"
@@ -35,6 +44,7 @@ services:
       FileManager__BrowseRoots__1: /home
       FileManager__AdminGroups__0: sudo
       FileManager__Auth__ExposeUserList: ${FM_EXPOSE_USER_LIST:-true}
+      FileManager__Impersonation__Enabled: ${FM_IMPERSONATION_ENABLED:-true}
 
       # Used by the entrypoint (requirement 5) and by the in-app bootstrap check.
       FM_BOOTSTRAP_ADMIN_USER: ${FM_BOOTSTRAP_ADMIN_USER:-a-admin}

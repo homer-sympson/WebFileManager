@@ -9,6 +9,35 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "app",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}",
+      "serviceActions": {
+        "app": "StartDebugging",
+        "db": "StartWithoutDebugging"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Database__Provider": "postgres",
+        "Database__ConnectionString": "Host=host.docker.internal;Port=55432;Database=filemanager;Username=filemanager;Password=filemanager",
+        "FileManager__BrowseRoots__0": "/data",
+        "FileManager__Auth__AllowDevelopmentBypass": "true",
+        "FileManager__Auth__ExposeUserList": "true",
+        "FileManager__Bootstrap__Enabled": "true",
+        "FileManager__Bootstrap__AdminUser": "a-admin",
+        "FileManager__Bootstrap__AdminPassword": "passwordDemand"
+      }
     }
   }
 }

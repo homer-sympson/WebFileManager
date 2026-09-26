@@ -7,4 +7,8 @@
     <Project Path="tests/FileManager.Api.Tests/FileManager.Api.Tests.csproj" />
     <Project Path="tests/FileManager.Core.Tests/FileManager.Core.Tests.csproj" />
   </Folder>
+  <!-- Visual Studio orchestration project for Docker debugging (F5 > "Docker Compose").
+       The .NET CLI reports it as "not selected for building", so `dotnet build FileManager.slnx`
+       keeps working outside Visual Studio. -->
+  <Project Path="docker-compose.dcproj" />
 </Solution>

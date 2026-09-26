@@ -37,7 +37,10 @@ src/FileManager.Api/      хост: Minimal API, cookie-аутентификац
 tests/FileManager.Core.Tests/  юнит-тесты (SQLite, подделки внешних команд)
 tests/FileManager.Api.Tests/   интеграционные HTTP-тесты (WebApplicationFactory + SQLite)
 web/                      Angular 22 SPA (ru + en), сборка в src/FileManager.Api/wwwroot
-Dockerfile, docker-compose.yml, .env(.example)
+Dockerfile                стадии base/web/build/publish/final (base использует Visual Studio)
+docker-compose.yml        PostgreSQL + приложение (dev/прод запуск и отладка из VS)
+docker-compose.dcproj     проект оркестрации Visual Studio («Docker Compose»)
+.dockerignore, .env(.example)
 ```
 
 ---
@@ -206,6 +209,72 @@ docker compose run --rm --entrypoint /bin/sh app -c \
 другого. Актуальный код использует прямые syscall-ы и проходит проверку; ошибка означает, что вы
 запускаете сборку со старым кодом (обрывки кэша) или архитектуру вне x86-64/aarch64. Проверьте
 `docker compose build --no-cache app` и `uname -m`.
+
+### Отладка в Docker из Visual Studio 2026
+
+Проект подготовлен так, чтобы отлаживать API прямо внутри Linux-контейнера (точки останова, шаг с
+заходом, локальные переменные), а PostgreSQL поднимался рядом сервисом.
+
+Что для этого уже есть в репозитории:
+
+| Файл | Роль |
+|---|---|
+| `Dockerfile` | стадии в конвенции Visual Studio: `base` (runtime + PAM/acl/passwd/sudo) — на её основе VS собирает отладочный контейнер, `web`/`build`/`publish`/`final` — продакшен-образ. `final` намеренно последняя: `docker compose build` собирает её, а VS передаёт `--target base` |
+| `docker-compose.yml` | `db` + `app` (образ `filemanager-app`, контекст — корень репозитория, БД публикуется на `127.0.0.1:55432` для второго профиля) |
+| `docker-compose.dcproj` | проект оркестрации VS («Docker Compose»); добавлен в `FileManager.slnx` — CLI помечает его как *not selected for building*, поэтому `dotnet build`/`dotnet test` не ломаются |
+| `src/FileManager.Api/FileManager.Api.csproj` | `DockerfileFile=..\..\Dockerfile`, `DockerComposeProjectPath=..\..\docker-compose.dcproj`, `DockerDefaultTargetOS=Linux` |
+| `Properties/launchSettings.json` | профили **Docker Compose** (рекомендуется) и **Docker** (одиночный проект) |
+| `.dockerignore` | контекст сборки без `bin`/`obj`/`node_modules`/`.env`/`wwwroot` |
+
+Порядок действий:
+
+```bash
+cp .env.example .env          # один раз: пароли Postgres и a-admin
+```
+
+1. Открыть `FileManager.slnx` в Visual Studio 2026 (нужен рабочий процесс «ASP.NET и веб-разработка»;
+   Docker Desktop настроен на **Linux containers**).
+2. В выпадающем списке запуска выбрать **Docker Compose** и нажать F5.
+
+Что происходит при этом: VS собирает стадию `base`, монтирует свежую сборку
+(`src/FileManager.Api/bin/Debug/net10.0`) в `/app` отладочного контейнера, запускает `dotnet
+FileManager.Api.dll` под `vsdbg` и поднимает `db` без отладки. Точки останова работают в
+`FileManager.Api` и `FileManager.Core`.
+
+Особенности отладочного контейнера:
+
+* приложение видит **свои** `/etc/passwd`, `/etc/shadow`, `/etc/group`, `/etc/sudoers.d` (это и есть
+  «хост» для контейнера), тома `/data` и `/home`, а также сервис `db` в общей сети compose;
+* имперсонация работает и здесь (переключение кредов прямыми syscall-ами), поэтому файлы,
+  созданные через API, принадлежат uid вошедшего пользователя;
+* `a-admin` создаёт встроенный bootstrap приложения (в compose включены
+  `FileManager__Bootstrap__*`), пароль — `FM_BOOTSTRAP_ADMIN_PASSWORD` из `.env`;
+* для подробных ошибок задайте в `.env` `ASPNETCORE_ENVIRONMENT=Development` (в этом режиме
+  доступен OpenAPI: `/openapi/v1.json`). Провайдер БД и строка подключения заданы в compose
+  явно, поэтому Development не переключит приложение на SQLite;
+* горячая перезагрузка: после правок снова F5 (образ в режиме отладки ставит
+  `DOTNET_USE_POLLING_FILE_WATCHER=1`).
+
+Про SPA в режиме отладки: `web`-стадия (Angular) попадает только в продакшен-стадию `final`, а в
+отладочный контейнер монтируется лишь вывод `dotnet build`, поэтому `wwwroot` там отсутствует —
+API отлаживается напрямую, а интерфейс удобнее запускать на хосте:
+
+```bash
+cd web && npm start          # dev-server на :4200 проксирует /api на http://localhost:8080
+```
+
+Это даёт полноценный UI поверх API, работающего в контейнере.
+
+Профиль **Docker** (одиночный проект) — альтернатива, если нужен только API-контейнер без compose:
+
+```bash
+docker compose up -d db      # БД публикуется на 127.0.0.1:55432
+```
+
+Профиль берёт `DockerfileFile` из корня и ходит в БД через `host.docker.internal:55432`
+(строка подключения уже прописана в профиле; пароль должен совпадать с `POSTGRES_PASSWORD`).
+Если VS в этом профиле выберет контекст сборки не от корня репозитория, сборка упадёт на `COPY
+global.json ...` — тогда используйте профиль «Docker Compose».
 
 ---
 
