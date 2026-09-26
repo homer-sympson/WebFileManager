@@ -75,6 +75,13 @@ docker-compose.dcproj     проект оркестрации Visual Studio («D
 * **Пароли** никогда не логируются и не попадают в argv: `chpasswd` получает данные только через
   stdin; в API возвращается лишь флаг `hasUsablePassword`. В PostgreSQL хранится SHA-256 cookie-токена,
   сам токен — только в браузере.
+* **Проверка пароля.** По умолчанию (`FileManager:Auth:Provider=shadow`) приложение само сравнивает
+  пароль с записью в `/etc/shadow` через `crypt_r(3)` — поддерживаются SHA-512 (`$6$`), yescrypt
+  (`$y$`, штатный метод `chpasswd` в Debian) и другие форматы libcrypt. Дополнительно проверяются
+  поля старения: истёкшая учётная запись (`expire`), истёкший пароль (`lastchg + max`) и
+  деактивация по неактивности. Провайдер `pam` включается явно (`Provider=pam`) — он нужен, если на
+  хосте пароли проверяются не через `/etc/shadow` (LDAP/SSSD) или используются модули вроде
+  `pam_faillock`; при недоступности PAM приложение возвращается к проверке по `/etc/shadow`.
 * **Пути.** Все пути нормализуются (`Path.GetFullPath`) и обязаны лежать внутри
   `FileManager:BrowseRoots`; корневые каталоги защищены от удаления и переименования.
 * **Строго одна сессия и одна вкладка на пользователя.** Одновременная работа одного аккаунта из
@@ -120,7 +127,7 @@ docker-compose.dcproj     проект оркестрации Visual Studio («D
 | `FileManager:AllowNonRootDev` | `false` | Разрешить запуск без root (только отладка) |
 | `FileManager:Impersonation:Enabled` | `true` | Имперсонация |
 | `FileManager:Impersonation:Threads` | `0` (auto) | Число выделенных потоков |
-| `FileManager:Auth:Provider` | `pam` | `pam` (fallback на `/etc/shadow` при недоступности) или `shadow` |
+| `FileManager:Auth:Provider` | `shadow` | Как проверяется пароль: `shadow` — сами через `crypt_r(3)` по `/etc/shadow` (по умолчанию), `pam` — через PAM-стек с fallback на `/etc/shadow` |
 | `FileManager:Auth:PamService` | `filemanager` | Имя сервиса в `/etc/pam.d` |
 | `FileManager:Auth:SessionIdleMinutes` | `480` | Скользящий срок жизни сессии |
 | `FileManager:Auth:SessionAbsoluteHours` | `168` | Абсолютный предел сессии |
@@ -378,9 +385,11 @@ ASPNETCORE_ENVIRONMENT=Development dotnet run --project src/FileManager.Api
 
 ### Что именно проверяется
 
-* **Юнит-тесты** (`tests/FileManager.Core.Tests`, 109 тестов): разбор `passwd/group/shadow` и фильтр
-  «пустой/заблокированный пароль + nologin + uid < 1000»; проверка пароля по реальному SHA-512
-  `crypt(3)`-хэшу и отказ для запертых аккаунтов; значения по умолчанию для коллекций опций
+* **Юнит-тесты** (`tests/FileManager.Core.Tests`, 114 тестов): разбор `passwd/group/shadow` и фильтр
+  «пустой/заблокированный пароль + nologin + uid < 1000»; проверка пароля по реальным хэшам
+  SHA-512 (`$6$`) и **yescrypt** (`$y$`), отказ для запертых аккаунтов, истёкшего пароля и истёкшей
+  (или деактивированной) учётной записи, отказ при отсутствии записи в `/etc/shadow`; значения по
+  умолчанию для коллекций опций
   (защита от «прилипания» дефолта при переопределении массива); `PathPolicy` (traversal, несколько
   корней, пустая конфигурация); `SudoersService` (содержимое, режим 0440, отклонение `visudo`, откат);
   `HostUserAdminService` (последовательность `useradd`/`chpasswd`/`usermod`/`groupadd`, пароль только
@@ -432,10 +441,16 @@ ASPNETCORE_ENVIRONMENT=Development dotnet run --project src/FileManager.Api
     65534, листинг и загрузка работают, созданные ядром файл и каталог принадлежат `65534:65534`, а
     root-only файл (0600) скачать нельзя — `403` от ядра, при этом `effectiveAccess` для него
     показан как `---`.
+* **Проверка реального входа на настоящем системном пользователе** (выполнялась вручную в этой
+  среде): создавался пользователь через `useradd`/`chpasswd`, затем проверялся полный путь
+  `HostAuthenticator`. Результат: `crypt_r` успешно проверяет и SHA-512 (`$6$`), и **yescrypt**
+  (`$y$` — именно такой хэш пишет `chpasswd` в Debian), а `pam_start`/`pam_authenticate` для того же
+  пользователя с тем же верным паролем возвращал `PAM_AUTH_ERR` (7) и через свой сервис, и через
+  стандартный `login`. Поэтому провайдер по умолчанию — `shadow`, а не `pam`.
 * **Требует настоящего хоста и прав root** (в этой среде не выполнялось): фактическое создание
-  системных пользователей в `/etc` (кроме тестов с подстановкой команд), запись в `/etc/sudoers.d`,
-  `setfacl` (в среде нет пакета `acl`), реальный `pam_start` с `/etc/pam.d/filemanager`.
-  Docker-сборка не запускалась (docker CLI в среде отсутствует).
+  системных пользователей через API (`useradd`/`usermod`/`groupdel` вызываются настоящие, но
+  проверялись тестами с подстановкой команд), запись в `/etc/sudoers.d`, `setfacl` (в среде нет
+  пакета `acl`). Docker-сборка не запускалась (docker CLI в среде отсутствует).
 
 ---
 
@@ -484,7 +499,7 @@ dotnet dotnet-ef migrations add <Name> -p src/FileManager.Core -s src/FileManage
 ## 10. Известные ограничения
 
 * Docker-сборка в репозитории **не проверялась** в среде разработки (нет docker CLI) — проверьте
-  `docker compose up --build` у себя. Проверено без Docker: сборка, 153 автотеста, `dotnet publish`
+  `docker compose up --build` у себя. Проверено без Docker: сборка, 158 автотестов, `dotnet publish`
   (обе локали попадают в `wwwroot`) и четыре сквозных smoke-теста (33 + 22 + 18 + 9 проверок) против
   опубликованного артефакта.
 * Строгий режим сессий означает, что при «зависшей» сессии войти из другого браузера нельзя, пока она

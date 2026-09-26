@@ -49,7 +49,7 @@ public sealed class ImpersonationOptions
 public sealed class AuthOptions
 {
     /// <summary>"pam" or "shadow". PAM falls back to shadow automatically when libpam is unavailable.</summary>
-    public string Provider { get; set; } = "pam";
+    public string Provider { get; set; } = "shadow";
 
     public string PamService { get; set; } = "filemanager";
 

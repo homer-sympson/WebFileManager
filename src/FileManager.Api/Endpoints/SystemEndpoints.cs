@@ -45,6 +45,7 @@ public static class SystemEndpoints
             File.Exists(options.Value.Linux.Shadow),
             acl.IsAvailable,
             databaseReady,
+            options.Value.Auth.Provider,
             paths.Roots));
     }
 }

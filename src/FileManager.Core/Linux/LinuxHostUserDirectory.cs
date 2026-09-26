@@ -20,6 +20,9 @@ public interface IHostUserDirectory
     /// <summary>Raw /etc/shadow password field (hash) for the account, empty when unavailable.</summary>
     string GetPasswordHash(string userName);
 
+    /// <summary>Full /etc/shadow entry (hash plus ageing fields), <c>null</c> when absent.</summary>
+    ShadowEntry? GetShadowEntry(string userName);
+
     /// <summary>True when at least one uid 0 / admin group account can actually authenticate.</summary>
     bool HasUsableAdminAccount();
 
@@ -61,7 +64,10 @@ public sealed class LinuxHostUserDirectory : IHostUserDirectory
     public string ResolveGroupName(uint gid) => Current().GroupNames.GetValueOrDefault(gid, gid.ToString(System.Globalization.CultureInfo.InvariantCulture));
 
     public string GetPasswordHash(string userName) =>
-        string.IsNullOrWhiteSpace(userName) ? string.Empty : Current().Shadow.GetValueOrDefault(userName, string.Empty);
+        GetShadowEntry(userName)?.Hash ?? string.Empty;
+
+    public ShadowEntry? GetShadowEntry(string userName) =>
+        string.IsNullOrWhiteSpace(userName) ? null : Current().Shadow.GetValueOrDefault(userName);
 
     public bool HasUsableAdminAccount() => Current().Users.Any(u => u.IsAdmin && u.IsLoginCapable);
 
@@ -91,7 +97,8 @@ public sealed class LinuxHostUserDirectory : IHostUserDirectory
     {
         var passwd = AccountFileParser.ParsePasswd(ReadFile(_options.Linux.Passwd));
         var groups = AccountFileParser.ParseGroup(ReadFile(_options.Linux.Group));
-        var shadow = AccountFileParser.ParseShadow(ReadFile(_options.Linux.Shadow));
+        var shadowEntries = AccountFileParser.ParseShadowEntries(ReadFile(_options.Linux.Shadow));
+        var shadow = shadowEntries.ToDictionary(pair => pair.Key, pair => pair.Value.Hash, StringComparer.Ordinal);
 
         var users = AccountFileParser.BuildUsers(
             passwd,
@@ -109,7 +116,7 @@ public sealed class LinuxHostUserDirectory : IHostUserDirectory
             passwd,
             groups,
             ByGid(groups),
-            shadow);
+            shadowEntries);
     }
 
     /// <summary>Duplicate keys are possible in hand edited account files; the first entry wins.</summary>
@@ -167,8 +174,5 @@ public sealed class LinuxHostUserDirectory : IHostUserDirectory
         IReadOnlyList<PasswdEntry> Passwd,
         IReadOnlyList<GroupEntry> Groups,
         IReadOnlyDictionary<uint, string> GroupNames,
-        IReadOnlyDictionary<string, string> Shadow)
-    {
-        public string GetShadowHash(string userName) => Shadow.GetValueOrDefault(userName, string.Empty);
-    }
+        IReadOnlyDictionary<string, ShadowEntry> Shadow);
 }

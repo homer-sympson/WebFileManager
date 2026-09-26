@@ -38,6 +38,7 @@ public static class AuthEndpoints
         ILoginThrottle throttle,
         IAuditService audit,
         IOptions<FileManagerOptions> options,
+        ILoggerFactory loggerFactory,
         CancellationToken cancellationToken)
     {
         var userName = request.UserName?.Trim() ?? string.Empty;
@@ -70,7 +71,12 @@ public static class AuthEndpoints
         if (!outcome.Success)
         {
             throttle.RegisterFailure(throttleKey);
-            await audit.WriteAsync(null, hostUser.Name, "login.failed", null, outcome.FailureReason, remoteIp, cancellationToken).ConfigureAwait(false);
+            loggerFactory.CreateLogger("FileManager.Api.Auth").LogWarning(
+                "Login failed for {User} (provider {Provider}): {Reason}",
+                hostUser.Name,
+                outcome.Provider,
+                outcome.FailureReason);
+            await audit.WriteAsync(null, hostUser.Name, "login.failed", null, $"{outcome.Provider}: {outcome.FailureReason}", remoteIp, cancellationToken).ConfigureAwait(false);
             return Unauthorized();
         }
 

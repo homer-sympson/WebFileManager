@@ -24,6 +24,7 @@ public sealed record CapabilitiesResponse(
     bool ShadowAvailable,
     bool AclAvailable,
     bool DatabaseReady,
+    string AuthProvider,
     IReadOnlyList<string> BrowseRoots);
 
 public sealed record DirectoryListingResponse(

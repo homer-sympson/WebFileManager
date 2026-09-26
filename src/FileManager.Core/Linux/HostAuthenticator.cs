@@ -53,17 +53,33 @@ public sealed class HostAuthenticator : IHostAuthenticator
             return AuthenticationOutcome.Ok("development");
         }
 
-        var provider = _options.Auth.Provider.Equals("pam", StringComparison.OrdinalIgnoreCase) ? _pam.Value : null;
-        if (provider is not null)
+        // "shadow" (the default) verifies against /etc/shadow with crypt_r(3) directly: it does not
+        // depend on a working PAM stack, which is environment sensitive (containers frequently lack
+        // the helper binaries or module configuration, and then every sign-in fails).
+        if (_options.Auth.Provider.Equals("shadow", StringComparison.OrdinalIgnoreCase))
         {
-            var outcome = await provider.AuthenticateAsync(userName, password, cancellationToken).ConfigureAwait(false);
-            if (outcome.Success || outcome.FailureReason != PamAuthenticator.NotConfiguredReason)
-            {
-                return outcome;
-            }
+            return VerifyWithShadow(userName, password);
         }
 
-        return await VerifyWithShadowAsync(userName, password, cancellationToken).ConfigureAwait(false);
+        var provider = _pam.Value;
+        if (provider is null)
+        {
+            return VerifyWithShadow(userName, password);
+        }
+
+        var outcome = await provider.AuthenticateAsync(userName, password, cancellationToken).ConfigureAwait(false);
+        if (outcome.Success || outcome.FailureReason != PamAuthenticator.NotConfiguredReason)
+        {
+            if (!outcome.Success)
+            {
+                _logger.LogWarning("PAM authentication for {User} failed: {Reason}", userName, outcome.FailureReason);
+            }
+
+            return outcome;
+        }
+
+        _logger.LogWarning("PAM is not usable ({Reason}); verifying against /etc/shadow instead.", outcome.FailureReason);
+        return VerifyWithShadow(userName, password);
     }
 
     private IHostAuthenticator? CreatePam()
@@ -84,12 +100,10 @@ public sealed class HostAuthenticator : IHostAuthenticator
         return new PamAuthenticator(service, _logger);
     }
 
-    private Task<AuthenticationOutcome> VerifyWithShadowAsync(string userName, string password, CancellationToken cancellationToken)
+    private AuthenticationOutcome VerifyWithShadow(string userName, string password)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-        var hash = _directory.GetPasswordHash(userName);
-        var outcome = ShadowCryptAuthenticator.Verify(userName, password, hash);
-        return Task.FromResult(outcome);
+        var entry = _directory.GetShadowEntry(userName);
+        return ShadowCryptAuthenticator.Verify(userName, password, entry);
     }
 }
 
@@ -108,20 +122,35 @@ public sealed class ShadowCryptAuthenticator : IHostAuthenticator
     public Task<AuthenticationOutcome> AuthenticateAsync(string userName, string password, CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
-        return Task.FromResult(Verify(userName, password, _directory.GetPasswordHash(userName)));
+        return Task.FromResult(Verify(userName, password, _directory.GetShadowEntry(userName)));
     }
 
-    public static AuthenticationOutcome Verify(string userName, string password, string storedHash)
+    /// <summary>
+    /// Verifies the password against the shadow entry and applies the ageing rules PAM would apply
+    /// for us (account expiration and password expiration).
+    /// </summary>
+    public static AuthenticationOutcome Verify(string userName, string password, ShadowEntry? entry)
     {
-        if (!AccountFileParser.IsUsablePasswordHash(storedHash))
+        if (entry is null)
+        {
+            return AuthenticationOutcome.Fail(ProviderName, "Учётная запись отсутствует в /etc/shadow.");
+        }
+
+        if (!AccountFileParser.IsUsablePasswordHash(entry.Hash))
         {
             return AuthenticationOutcome.Fail(ProviderName, "У пользователя не задан пароль.");
+        }
+
+        var expiry = CheckAgeing(entry);
+        if (expiry is not null)
+        {
+            return AuthenticationOutcome.Fail(ProviderName, expiry);
         }
 
         string? computed;
         try
         {
-            computed = Hash(password, storedHash);
+            computed = Hash(password, entry.Hash);
         }
         catch (Exception ex) when (ex is DllNotFoundException or EntryPointNotFoundException or TypeInitializationException)
         {
@@ -130,16 +159,49 @@ public sealed class ShadowCryptAuthenticator : IHostAuthenticator
 
         if (computed is null)
         {
-            return AuthenticationOutcome.Fail(ProviderName, "Не удалось вычислить хэш пароля.");
+            // libcrypt could not handle this hash format (unsupported or damaged entry).
+            return AuthenticationOutcome.Fail(
+                ProviderName,
+                $"Не удалось проверить хэш пароля (формат {DescribeFormat(entry.Hash)} не поддерживается libcrypt).");
         }
 
-        var stored = Encoding.UTF8.GetBytes(storedHash);
+        var stored = Encoding.UTF8.GetBytes(entry.Hash);
         var actual = Encoding.UTF8.GetBytes(computed);
         var matches = stored.Length == actual.Length && CryptographicOperations.FixedTimeEquals(stored, actual);
         return matches
             ? AuthenticationOutcome.Ok(ProviderName)
             : AuthenticationOutcome.Fail(ProviderName, "Неверное имя пользователя или пароль.");
     }
+
+    /// <summary>Account expiration (field 8) and password expiration (last change + field 5).</summary>
+    private static string? CheckAgeing(ShadowEntry entry)
+    {
+        var today = DateTimeOffset.UtcNow;
+
+        if (ShadowEntry.ToDate(entry.ExpireDays) is { } accountExpires && accountExpires < today)
+        {
+            return "Срок действия учётной записи истёк.";
+        }
+
+        if (entry.MaxDays > 0 && entry.LastChangeDays > 0 &&
+            ShadowEntry.ToDate(entry.LastChangeDays + entry.MaxDays) is { } passwordExpires &&
+            passwordExpires < today)
+        {
+            return "Срок действия пароля истёк — смените пароль на хосте.";
+        }
+
+        if (entry.InactiveDays > 0 && entry.LastChangeDays > 0 && entry.MaxDays > 0 &&
+            ShadowEntry.ToDate(entry.LastChangeDays + entry.MaxDays + entry.InactiveDays) is { } inactiveSince &&
+            inactiveSince < today)
+        {
+            return "Учётная запись деактивирована по неактивности.";
+        }
+
+        return null;
+    }
+
+    private static string DescribeFormat(string hash) =>
+        hash.Length >= 3 ? hash[..3] : "(пустой)";
 
     private static string? Hash(string password, string storedHash)
     {

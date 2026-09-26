@@ -6,6 +6,21 @@ public sealed record PasswdEntry(string Name, uint Uid, uint Gid, string Gecos, 
 
 public sealed record GroupEntry(string Name, uint Gid, string[] Members);
 
+/// <summary>One /etc/shadow line. Ageing fields are days; -1 means "not set".</summary>
+public sealed record ShadowEntry(
+    string Hash,
+    long LastChangeDays,
+    long MinDays,
+    long MaxDays,
+    long WarnDays,
+    long InactiveDays,
+    long ExpireDays)
+{
+    /// <summary>Days since the epoch for a shadow date field, or <c>null</c> when it is not set.</summary>
+    public static DateTimeOffset? ToDate(long days) =>
+        days <= 0 ? null : DateTimeOffset.UnixEpoch.AddDays(days);
+}
+
 /// <summary>
 /// Pure parsing of the classic account files. Kept side effect free so it can be unit tested
 /// against fixture content without touching the real host.
@@ -71,6 +86,37 @@ public static class AccountFileParser
             var end = rest.IndexOf(':');
             var hash = end >= 0 ? rest[..end] : rest;
             result[name] = hash;
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Full /etc/shadow entry, including the ageing fields the password policy uses
+    /// (last change, maximum age, warning, inactivity and account expiration).
+    /// </summary>
+    public static IReadOnlyDictionary<string, ShadowEntry> ParseShadowEntries(string content)
+    {
+        var result = new Dictionary<string, ShadowEntry>(StringComparer.Ordinal);
+        foreach (var line in EnumerateLines(content))
+        {
+            var parts = line.Split(':');
+            if (parts.Length < 2 || parts[0].Length == 0)
+            {
+                continue;
+            }
+
+            result[parts[0]] = new ShadowEntry(
+                parts[1],
+                Field(parts, 2),
+                Field(parts, 3),
+                Field(parts, 4),
+                Field(parts, 5),
+                Field(parts, 6),
+                Field(parts, 7));
+
+            static long Field(string[] fields, int index) =>
+                index < fields.Length && long.TryParse(fields[index], out var value) ? value : -1;
         }
 
         return result;

@@ -101,7 +101,12 @@ public sealed class StubUserDirectory : IHostUserDirectory
 
     public string ResolveGroupName(uint gid) => gid.ToString();
 
-    public string GetPasswordHash(string userName) => _users.FirstOrDefault(u => u.Name == userName)?.HasUsablePassword == true ? "$6$deadbeef$hash" : string.Empty;
+    public string GetPasswordHash(string userName) => GetShadowEntry(userName)?.Hash ?? string.Empty;
+
+    public ShadowEntry? GetShadowEntry(string userName) =>
+        _users.FirstOrDefault(u => u.Name == userName)?.HasUsablePassword == true
+            ? new ShadowEntry("$6$deadbeef$hash", -1, -1, -1, -1, -1, -1)
+            : null;
 
     public bool HasUsableAdminAccount() => _users.Any(u => u.IsAdmin && u.HasUsablePassword);
 
@@ -152,6 +157,30 @@ public sealed class TempWorkspace : IDisposable
             // best effort cleanup
         }
     }
+}
+
+/// <summary>Builds <see cref="HostUser"/> values for tests.</summary>
+public static class HostUserFactory
+{
+    public static HostUser Create(
+        string name,
+        uint uid,
+        bool admin,
+        bool hasPassword,
+        uint gid = 0,
+        string home = "/home/user",
+        string shell = "/bin/bash") =>
+        new(
+            name,
+            uid,
+            gid == 0 ? uid : gid,
+            name,
+            home,
+            shell,
+            admin ? ["sudo"] : [name],
+            uid == 0 ? [0u] : [uid],
+            admin,
+            hasPassword);
 }
 
 public static class TestOptions
